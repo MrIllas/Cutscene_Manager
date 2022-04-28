@@ -36,7 +36,7 @@ bool ModuleMap::Init(pugi::xml_node& config)
 
     bool ret = true;
 
-    folder = (config.child("hub_folder").child_value());
+    folder = (config.child("folder").child_value());
 
     return ret;
 }
@@ -54,18 +54,6 @@ UpdateStatus ModuleMap::PostUpdate()
 	while (mapLayerItem != NULL) {
 
 		if (mapLayerItem->data->properties.GetProperty("Draw") == 1)
-		{
-			Draw(mapLayerItem);
-		}
-
-		//Draws roof only when players isn't inside
-		if (mapLayerItem->data->properties.GetProperty("Roof") == 1 && roof)
-		{
-			Draw(mapLayerItem);
-		}
-
-		//Draws darkness
-		if (mapLayerItem->data->properties.GetProperty("Roof") == 2 && !roof)
 		{
 			Draw(mapLayerItem);
 		}

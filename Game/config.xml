@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
 	<app>
-		<title>The Last Purifier</title>
+		<title>Cutscene Manager</title>
 		<organization>UPC</organization>
 	</app>
 	<renderer>
@@ -15,7 +15,7 @@
 		<fullscreen_window value="false" />
 	</window>
 	<textures>
-		<ghoul width="32" height="32" layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Enemies/Ghoul/Ghoul.png" />
+		<!--<ghoul width="32" height="32" layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Enemies/Ghoul/Ghoul.png" />
 		<worm width="32" height="32" layer="1" orderInLayer="3.0" scale="1.2" path="Assets/Sprites/Enemies/Worm/Worm.png" />
 		<kaboomExplotion width="32" height="32" layer="1" orderInLayer="3.0" scale="1.6" path="Assets/Sprites/Enemies/Ghoul/KaboomExplotion.png" />
 		<npc width="32" height="32" layer="1" orderInLayer="3.0" scale="0.3" path="Assets/Sprites/NPC/npcIdleAnim.png" />
@@ -25,13 +25,13 @@
 		<basicattackrevenant width="64" height="64" layer="1" orderInLayer="3.0" scale="0.8" path="Assets/Sprites/Player/Revenant/basicAttackRevenant.png" />
 		<basicwithpurifiedsword width="64" height="64" layer="1" orderInLayer="3.0" scale="0.8" path="Assets/Sprites/Player/Revenant/basicWithPurifiedSword.png" />
 		<purificationslashrevenant width="64" height="128" layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Player/Revenant/purificationSlashRevenant.png" />
-		<purificationslashwithpurifiedsword width="64" height="128" layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Player/Revenant/purificationSlashWithPurifiedSword.png" />
+		<purificationslashwithpurifiedsword width="64" height="128" layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Player/Revenant/purificationSlashWithPurifiedSword.png" />-->
 	</textures>
 	<fonts>
 		<defaultFont width="48" height="48" letter="67" r="255" g="255" b="255" a="255" spaceInLetter="-13" layer="3" orderInLayer="3.0" scale="0.2" path="Assets/Fonts/defaultFont.png" />
 	</fonts>
 	<dialogText>
-		<spanish>
+		<!--<spanish>
 			<purifier1 Num="4">
 				<Sentence1>Chico... ¡Acercate rapido!</Sentence1>
 				<Sentence2>No se que haces aqui pero vuelve rapido a la aldea, aqui corres peligro</Sentence2>
@@ -239,23 +239,16 @@
 				  I am still waiting for her to come back one day.
 			  </Sentence3>
 			</purifier10>
-		</english>
+		</english>-->
 	</dialogText>
 	<audios>
 		<music volume="0" />
 		<sfx volume="0" />
 	</audios>
 	<scenes>
-		<level1>
-			<enviroument />
-		</level1>
-		<level2>
-			<enviroument />
-			<enemies />
-		</level2>
+		
 	</scenes>
 	<map>
 		<folder>Assets/maps/</folder>
-		<hub_folder>Assets/Maps/Hub/</hub_folder>
 	</map>
 </config>
