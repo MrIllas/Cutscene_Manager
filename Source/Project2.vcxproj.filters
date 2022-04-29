@@ -54,6 +54,9 @@
     <Filter Include="Archivos de encabezado\Tools\Particles">
       <UniqueIdentifier>{c63edb79-72ba-4162-a3e2-159213dafac3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\CutsceneInstructions">
+      <UniqueIdentifier>{99607383-eab1-4e71-9664-9b3d355fdd0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="External\PugiXml\src\pugixml.hpp">
@@ -146,6 +149,21 @@
     <ClInclude Include="resource.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleCutscene.h">
+      <Filter>Archivos de encabezado\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="CutsceneContainer.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="CutInstruction.h">
+      <Filter>Archivos de encabezado\CutsceneInstructions</Filter>
+    </ClInclude>
+    <ClInclude Include="CamInstruction.h">
+      <Filter>Archivos de encabezado\CutsceneInstructions</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitIntruction.h">
+      <Filter>Archivos de encabezado\CutsceneInstructions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="External\PugiXml\src\pugixml.cpp">
@@ -213,6 +231,12 @@
     </ClCompile>
     <ClCompile Include="Particle.cpp">
       <Filter>Archivos de origen\Tools\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCutscene.cpp">
+      <Filter>Archivos de origen\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="CutsceneContainer.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

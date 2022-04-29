@@ -8,6 +8,7 @@
 #include "ModuleScene.h"
 #include "ModuleMap.h"
 #include "ModuleEvents.h"
+#include "ModuleCutscene.h"
 #include <iostream>
 
 Application* Application::app = nullptr;
@@ -32,6 +33,7 @@ bool Application::Init()
 	scene = new ModuleScene();
 	map = new ModuleMap();
 	events = new ModuleEvents();
+	cutscene = new ModuleCutscene();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -51,6 +53,8 @@ bool Application::Init()
 	AddModule(map);
 
 	AddModule(audio);
+
+	AddModule(cutscene);
 
 	//Render
 	AddModule(renderer);

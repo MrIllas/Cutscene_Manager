@@ -6,8 +6,8 @@
 #include  <string.h>
 #include "External/PugiXml/src/pugixml.hpp"
 
-#define CONFIG_FILENAME		"config.xml"
-#define SAVE_STATE_FILENAME "save_game.xml"
+#define CONFIG_FILENAME		"Files/config.xml"
+#define SAVE_STATE_FILENAME "Files/save_game.xml"
 
 #define FPS 60
 #define FRAME_TIME (1.0/FPS)
@@ -22,6 +22,7 @@ class ModuleScene;
 class ModuleMap;
 class ModuleUI;
 class ModuleEvents;
+class ModuleCutscene;
 class Module;
 
 class Application
@@ -37,6 +38,7 @@ public:
 	ModuleMap* map = nullptr;
 	ModuleUI* ui = nullptr;
 	ModuleEvents* events = nullptr;
+	ModuleCutscene* cutscene = nullptr;
 
 	Timer globalTime;
 

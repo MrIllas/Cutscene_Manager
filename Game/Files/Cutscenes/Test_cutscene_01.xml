@@ -1,0 +1,19 @@
+ <?xml version="1.0"?>
+ <cutscene title="">
+	<Camera posX="250" posY="250" time="3.0" />
+	<Wait time="1.0" />
+	<Camera posX="0" posY="0" time="2.0" />
+ </cutscene>
+ 
+ <!--
+ <CutScene disableBars="1" replayOnRestart="1">
+    <Parallel>
+        <CameraTarget tag="Bomb" time="1.0"/>
+        <DelayExecution time="0.4">
+            <CameraZoom zoom="4.0" time="0.6"/>
+        </DelayExecution>
+    </Parallel>
+    <Wait time="5.0"/>
+    <WaitForKey/>
+</CutScene> 
+ -->

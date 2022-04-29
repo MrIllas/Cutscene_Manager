@@ -7,6 +7,7 @@
 #include "ModuleEvents.h"
 
 #include "ModuleRender.h"
+#include "ModuleCutscene.h"
 
 #include <iostream>
 
@@ -38,6 +39,12 @@ bool TestScene::PreUpdate()
     if (app->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN)
     {
         std::cout << app->renderer->camera->x << ", " << app->renderer->camera->y << std::endl;
+    }
+
+    if (app->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+    {
+        app->cutscene->Load("Test_cutscene_01.xml");
+        app->cutscene->Play();
     }
 
     Scene::PreUpdate();
