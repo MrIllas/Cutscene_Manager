@@ -24,6 +24,7 @@ bool TestScene::Start()
 {
     app->map->Load(TESTSCENE);
 
+    GameObject* test = new GameObject("Test", "Test");
 
     Scene::Start();    
     

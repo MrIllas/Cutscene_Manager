@@ -13,6 +13,15 @@ enum States
 	ONCE
 };
 
+enum SubInstruction
+{
+	ONE,
+	TWO,
+	THREE,
+	FOUR,
+	FIVE
+};
+
 class CutInstruction
 {
 public:
@@ -40,6 +49,7 @@ public:
 public:
 	float time = 0;
 	bool state = ONCE;
+	SubInstruction subInstruction = ONE;
 protected:
 	Application* app = nullptr;
 };

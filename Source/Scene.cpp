@@ -96,6 +96,21 @@ void Scene::AddGameObject(GameObject* gameObject)
 	gameObjects.add(gameObject);
 }
 
+GameObject* Scene::GetGameObjectByTag(std::string tag)
+{
+	for (int i = 0; i < gameObjects.count(); i++)
+	{
+		if (!gameObjects[i]) continue;
+
+		if (gameObjects[i]->tag == tag)
+		{
+			return gameObjects[i];
+		}
+	}
+
+	return nullptr;
+}
+
 void Scene::DestroyGameObject(GameObject* gameObject)
 {
 	int index = gameObjects.find(gameObject);

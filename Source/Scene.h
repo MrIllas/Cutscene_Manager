@@ -39,6 +39,8 @@ public:
 
 	void AddGameObject(GameObject* gameObject);
 
+	GameObject* GetGameObjectByTag(std::string tag);
+
 	void DestroyGameObject(GameObject* gameObject);
 
 	virtual void SetSaveData();

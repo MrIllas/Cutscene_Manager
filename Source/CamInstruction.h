@@ -2,6 +2,8 @@
 #include "CutInstruction.h"
 #include "Point.h"
 #include "ModuleRender.h"
+#include "ModuleScene.h"
+#include "Scene.h"
 
 #include <iostream>
 
@@ -12,7 +14,16 @@ public:
 	{
 		position = { posX, posY };
 		state = ONCE;
+		subInstruction = ONE;
 		//Start();
+	}
+
+	CamInstruction(std::string tag, float time) : CutInstruction(time)
+	{
+		tagged = tag;
+
+		state = ONCE;
+		subInstruction = TWO;
 	}
 
 	~CamInstruction()
@@ -23,11 +34,21 @@ public:
 	{
 		if (EXECUTED) return;
 
-		app->renderer->camera->SetPosition(position);
+		switch (subInstruction)
+		{
+		case ONE://Position Setting
+			app->renderer->camera->SetPosition(position);
+			break;
+		case TWO://Camera displace focus
+			app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged);
+			break;
+		}
+		
 
 		state = EXECUTED;
 	}
 
 private:
 	iPoint position;
+	std::string tagged = "";
 };

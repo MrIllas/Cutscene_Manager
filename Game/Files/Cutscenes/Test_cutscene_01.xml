@@ -1,6 +1,6 @@
  <?xml version="1.0"?>
  <cutscene title="">
-	<Camera posX="250" posY="250" time="3.0" />
+	<CameraTarget tag="Test" time="1.0" />
 	<Wait time="1.0" />
 	<Camera posX="0" posY="0" time="2.0" />
  </cutscene>

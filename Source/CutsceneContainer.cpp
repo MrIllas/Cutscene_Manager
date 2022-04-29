@@ -27,8 +27,13 @@ void CutsceneContainer::AddInstruction(pugi::xml_node* element)
 	{
 		case CAMERA:
 			instructions.add(new CamInstruction(element->attribute("posX").as_int(),
-											element->attribute("posY").as_int(),
-											element->attribute("time").as_float()
+												element->attribute("posY").as_int(),
+												element->attribute("time").as_float()
+			));
+			break;
+		case CAMERA_TARGET:
+			instructions.add(new CamInstruction(element->attribute("tag").as_string(),
+												element->attribute("time").as_float()
 			));
 			break;
 		case WAIT:
@@ -88,6 +93,7 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 {
 	std::map<std::string, Cut_Element> eleStrings{
 		{"Camera", CAMERA},
+		{"CameraTarget", CAMERA_TARGET},
 		{"Wait", WAIT}
 	};
 

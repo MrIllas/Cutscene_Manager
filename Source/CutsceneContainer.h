@@ -8,6 +8,7 @@ enum Cut_Element
 {
 	INVALID,
 	CAMERA,
+	CAMERA_TARGET,
 	WAIT
 };
 
