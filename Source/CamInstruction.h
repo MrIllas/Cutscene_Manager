@@ -34,13 +34,15 @@ public:
 	{
 		if (EXECUTED) return;
 
+		app->renderer->camera->ReleaseTarget();
 		switch (subInstruction)
 		{
 		case ONE://Position Setting
+			
 			app->renderer->camera->SetPosition(position);
 			break;
 		case TWO://Camera displace focus
-			app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged);
+			app->renderer->camera->SetTarget(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
 			break;
 		}
 		

@@ -5,6 +5,7 @@
 #include "ModuleWindow.h"
 #include "ModuleMap.h"
 #include "ModuleEvents.h"
+#include "ModulePhysics.h"
 
 #include "ModuleRender.h"
 #include "ModuleCutscene.h"
@@ -24,7 +25,8 @@ bool TestScene::Start()
 {
     app->map->Load(TESTSCENE);
 
-    GameObject* test = new GameObject("Test", "Test");
+    GameObject* testObj = new GameObject("Test", "Test");
+    testObj->pBody = app->physics->CreateRectangle({ 500, 200 }, 1, 1, testObj);
 
     Scene::Start();    
     
