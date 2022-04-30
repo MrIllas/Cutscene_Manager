@@ -1,8 +1,39 @@
  <?xml version="1.0"?>
  <cutscene title="">
-	<CameraTarget tag="Test" time="1.0" />
+	<Setup>
+		<Entities>
+			<Entity tag="Test">
+				<Position posX="25" posY="25" />
+				<Texture layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Entities/Test.png" />
+				<Animations>
+					<Animation name="Walk_up" loop="true" frames="2" width="70" height="94" line="0" speed="0.10f" />
+					<!--<Animation name="WALK_DOWN" />
+					<Animation name="WALK_LEFT" />
+					<Animation name="WALK_RIGHT" />
+					<Animation name="ATTACK" />
+					<Animation name="A_ONE" />
+					<Animation name="A_TWO" />
+					<Animation name="A_THREE" />
+					<Animation name="A_FOUR" />
+					<Animation name="A_FIVE" />-->
+				</Animations>
+			</Entity>
+			
+			<Entity tag="Test1">
+				<Position posX="60" posY="0" />
+				<Texture layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Entities/Test.png" />
+				<Animations>
+					<Animation name="Walk_up" loop="true" frames="2" width="70" height="94" line="0" speed="0.10f" />
+				</Animations>
+			</Entity>
+		</Entities>
+	</Setup>
+	<CameraDisplacement speedX="2.0" speedY="2.0" time="3.0" />
+	<Wait time="1.0" />
+	<!--<CameraTarget tag="Test" time="1.0" />-->
 	<Wait time="1.0" />
 	<Camera posX="0" posY="0" time="2.0" />
+	
  </cutscene>
  
  <!--

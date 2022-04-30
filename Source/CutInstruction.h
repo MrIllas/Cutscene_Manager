@@ -44,11 +44,11 @@ public:
 	{
 	}
 
-	virtual void Play() {}
+	virtual void Play(float dt = 0.0f) {}
 
 public:
 	float time = 0;
-	bool state = ONCE;
+	int state = ONCE;
 	SubInstruction subInstruction = ONE;
 protected:
 	Application* app = nullptr;

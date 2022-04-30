@@ -96,6 +96,7 @@
     <ClInclude Include="CamInstruction.h" />
     <ClInclude Include="CutInstruction.h" />
     <ClInclude Include="CutsceneContainer.h" />
+    <ClInclude Include="EntitySetup.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
@@ -130,6 +131,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CutsceneContainer.cpp" />
+    <ClCompile Include="EntitySetup.cpp" />
     <ClCompile Include="EventListener.cpp" />
     <ClCompile Include="External\PugiXml\src\pugixml.cpp" />
     <ClCompile Include="GameObject.cpp" />

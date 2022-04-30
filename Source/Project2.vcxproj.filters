@@ -54,8 +54,20 @@
     <Filter Include="Archivos de encabezado\Tools\Particles">
       <UniqueIdentifier>{c63edb79-72ba-4162-a3e2-159213dafac3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\CutsceneInstructions">
+    <Filter Include="Archivos de encabezado\Cutscene">
+      <UniqueIdentifier>{8d5c54f7-f0c7-4ccd-a67a-3a3b2d5b849d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Cutscene\CutsceneInstructions">
       <UniqueIdentifier>{99607383-eab1-4e71-9664-9b3d355fdd0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Cutscene\Setup">
+      <UniqueIdentifier>{f4f08d88-f387-4dc6-bacc-bcd96e86fcc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Cutscene">
+      <UniqueIdentifier>{83b2eb62-09c8-40fc-aab0-ddaf0816df14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Cutscene\Setup">
+      <UniqueIdentifier>{646497b5-9f0d-49fa-be38-1f0c5a6a0139}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -152,17 +164,20 @@
     <ClInclude Include="ModuleCutscene.h">
       <Filter>Archivos de encabezado\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="CutsceneContainer.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="CutInstruction.h">
-      <Filter>Archivos de encabezado\CutsceneInstructions</Filter>
+      <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
     </ClInclude>
     <ClInclude Include="CamInstruction.h">
-      <Filter>Archivos de encabezado\CutsceneInstructions</Filter>
+      <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
     </ClInclude>
     <ClInclude Include="WaitIntruction.h">
-      <Filter>Archivos de encabezado\CutsceneInstructions</Filter>
+      <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
+    </ClInclude>
+    <ClInclude Include="CutsceneContainer.h">
+      <Filter>Archivos de encabezado\Cutscene</Filter>
+    </ClInclude>
+    <ClInclude Include="EntitySetup.h">
+      <Filter>Archivos de encabezado\Cutscene\Setup</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -236,7 +251,10 @@
       <Filter>Archivos de origen\Modules</Filter>
     </ClCompile>
     <ClCompile Include="CutsceneContainer.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen\Cutscene</Filter>
+    </ClCompile>
+    <ClCompile Include="EntitySetup.cpp">
+      <Filter>Archivos de origen\Cutscene\Setup</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

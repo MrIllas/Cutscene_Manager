@@ -91,6 +91,19 @@ bool Scene::CleanUp()
 	return true;
 }
 
+void Scene::CleanCutscene()
+{
+	for (int i = 0; i < gameObjects.count(); i++)
+	{
+		if (!gameObjects[i]->name.compare("EntitySetup"))
+		{
+			gameObjects[i]->CleanUp();
+			RELEASE(gameObjects[i]);
+			gameObjects[i] = nullptr;
+		}
+	}
+}
+
 void Scene::AddGameObject(GameObject* gameObject)
 {
 	gameObjects.add(gameObject);

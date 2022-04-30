@@ -126,6 +126,7 @@ void Camera::SetPosition(iPoint pos)
 
 void Camera::ReleaseTarget()
 {
+	if (target == nullptr) return;
 	target = nullptr;
 	x = y = 0;
 }

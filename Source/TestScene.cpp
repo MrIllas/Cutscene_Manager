@@ -46,8 +46,10 @@ bool TestScene::PreUpdate()
 
     if (app->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
     {
-        app->cutscene->Load("Test_cutscene_01.xml");
-        app->cutscene->Play();
+        if (app->cutscene->Load("Test_cutscene_01.xml"))
+        {
+            app->cutscene->Play();
+        }
     }
 
     Scene::PreUpdate();

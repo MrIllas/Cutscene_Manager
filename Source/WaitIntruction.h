@@ -12,7 +12,7 @@ public:
 	{
 	}
 
-	void Play() override
+	void Play(float dt = 0.0f) override
 	{
 
 	}

@@ -42,12 +42,15 @@ UpdateStatus ModuleCutscene::Update()
 	//std::cout << clock.getDeltaTime() << std::endl;
 	//clock.Reset();
 	if(!playing) return UpdateStatus::UPDATE_CONTINUE;
-
 	//clock.Update();
 
 	if (delay <= clock.getDeltaTime()) //Time passed
 	{
 		playing = container.Next();
+
+		//Returns in case there is no instruction at all
+		if (!playing) return UpdateStatus::UPDATE_CONTINUE;
+
 		delay = container.currentTime();// *1000;
 		//std::cout << time << ", " << app->globalTime.getExecuteTime() << std::endl;
 		
@@ -59,7 +62,7 @@ UpdateStatus ModuleCutscene::Update()
 	
 	if (container.isContinuous())
 	{
-		container.PlayInstruction();
+		container.PlayCInstruction(clock.getDeltaTime());
 	}
 
 	return UpdateStatus::UPDATE_CONTINUE;
@@ -94,10 +97,16 @@ bool ModuleCutscene::Load(std::string filename)
 	pugi::xml_node node = cutFile.child("cutscene");
 	pugi::xml_node element = node.first_child();
 
+	std::string setup = element.name();
 	//Loads Entities and other additional things into the container
-	if (element.name() == "setup")
+	if (!setup.compare("Setup"))
 	{
-
+		pugi::xml_node setUpElement = element.first_child();
+		while (setUpElement != NULL)
+		{
+			container.AddSetup(&setUpElement);
+			setUpElement = setUpElement.next_sibling();
+		}
 		element = element.next_sibling();
 	}
 
@@ -113,7 +122,6 @@ bool ModuleCutscene::Load(std::string filename)
 
 void ModuleCutscene::Play()
 {
-
 	playing = true;
 
 	clock.Reset();

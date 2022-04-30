@@ -36,6 +36,8 @@ public:
 	virtual bool PostUpdate();
 
 	virtual bool CleanUp();
+	
+	void CleanCutscene();
 
 	void AddGameObject(GameObject* gameObject);
 
