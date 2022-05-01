@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "List.h"
+#include "Text.h"
 
 class Scene
 {
@@ -17,6 +18,8 @@ protected:
 	List<GameObject*> gameObjects;
 
 	//List<SDL_Texture*> sceneTextures;
+
+	List<Text*> texts;
 
 public:
 	// Constructor
@@ -43,7 +46,11 @@ public:
 
 	GameObject* GetGameObjectByTag(std::string tag);
 
+	void AddText(Text* text);
+
 	void DestroyGameObject(GameObject* gameObject);
+
+	void DestroyText(Text* text);
 
 	virtual void SetSaveData();
 

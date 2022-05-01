@@ -4,15 +4,19 @@
 
 #include "CutInstruction.h"
 #include "EntitySetup.h"
+#include "LabelSetup.h"
 
 enum Cut_Element
 {
 	INVALID,
 	ENTITIES,
+	LABEL,
 	WAIT,
 	CAMERA,
 	CAMERA_TARGET,
 	CAMERA_DISPLACEMENT,
+	ENTITY_MOVE,
+	LABEL_WRITE
 	
 };
 

@@ -1,4 +1,5 @@
 ﻿#include "TestScene.h"
+#include "Text.h"
 #include "Particle.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"

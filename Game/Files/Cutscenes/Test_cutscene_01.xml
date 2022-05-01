@@ -2,9 +2,9 @@
  <cutscene title="">
 	<Setup>
 		<Entities>
-			<Entity tag="Test">
+			<Entity tag="Test1">
 				<Position posX="25" posY="25" />
-				<Texture layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Entities/Test.png" />
+				<Texture layer="1" orderInLayer="3.0" scale="0.25" path="Assets/Sprites/Entities/Test.png" />
 				<Animations>
 					<Animation name="Walk_up" loop="true" frames="2" width="70" height="94" line="0" speed="0.10f" />
 					<!--<Animation name="WALK_DOWN" />
@@ -19,21 +19,31 @@
 				</Animations>
 			</Entity>
 			
-			<Entity tag="Test1">
+			<Entity tag="Test2">
 				<Position posX="60" posY="0" />
-				<Texture layer="1" orderInLayer="3.0" scale="1" path="Assets/Sprites/Entities/Test.png" />
+				<Texture layer="1" orderInLayer="3.0" scale="0.25" path="Assets/Sprites/Entities/Test.png" />
 				<Animations>
 					<Animation name="Walk_up" loop="true" frames="2" width="70" height="94" line="0" speed="0.10f" />
 				</Animations>
 			</Entity>
 		</Entities>
+		<Label tag="Main_lbl" posX="20" posY="20" size="25" />
+			<!--<LabelEdit text="Hello_World" />
+		</Label>-->
 	</Setup>
-	<CameraDisplacement speedX="2.0" speedY="2.0" time="3.0" />
+	
+	<!--<LabelWrite tag="Main_lbl" text="Hello World" time="1.0f" />-->
+	<CameraTarget tag="Test1" time="1.0" />
+	<EntityMove tag="Test1" speedX="1" speedY="0" time="3.0" />
+	<CameraTarget tag="Test2" time="1.0" />
+	<EntityMove tag="Test2" speedX="1" speedY="0" time="3.0" />
 	<Wait time="1.0" />
-	<!--<CameraTarget tag="Test" time="1.0" />-->
+	<!--<CameraDisplacement speedX="2.0" speedY="2.0" time="3.0" />
+	<Wait time="1.0" />
+	<CameraTarget tag="Test" time="1.0" />
 	<Wait time="1.0" />
 	<Camera posX="0" posY="0" time="2.0" />
-	
+	-->
  </cutscene>
  
  <!--

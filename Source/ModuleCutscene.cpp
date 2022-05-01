@@ -52,6 +52,7 @@ UpdateStatus ModuleCutscene::Update()
 		if (!playing) return UpdateStatus::UPDATE_CONTINUE;
 
 		delay = container.currentTime();// *1000;
+		clock.Reset();
 		//std::cout << time << ", " << app->globalTime.getExecuteTime() << std::endl;
 		
 		if (!container.isContinuous())

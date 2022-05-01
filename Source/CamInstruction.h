@@ -51,13 +51,15 @@ public:
 		switch (subInstruction)
 		{
 		case ONE://Position Setting
-			
+			std::cout << "Camera Position set" << std::endl;
 			app->renderer->camera->SetPosition(position);
 			break;
 		case TWO://Camera focus
+			std::cout << "Camera focus" << std::endl;
 			app->renderer->camera->SetTarget(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
 			break;
 		case THREE://Camera displacement
+			std::cout << "Displacing camera" << std::endl;
 			app->renderer->camera->x -= speed.x * dt;
 			app->renderer->camera->y -= speed.y * dt;
 			
@@ -72,6 +74,5 @@ public:
 
 private:
 	iPoint position;
-	std::string tagged = "";
 	fPoint speed;
 };

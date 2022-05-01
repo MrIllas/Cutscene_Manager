@@ -69,6 +69,12 @@
     <Filter Include="Archivos de origen\Cutscene\Setup">
       <UniqueIdentifier>{646497b5-9f0d-49fa-be38-1f0c5a6a0139}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\GUI">
+      <UniqueIdentifier>{916634e0-d2dc-446e-acd2-6bdee240ba80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GUI">
+      <UniqueIdentifier>{5ceb72b8-a448-4d5c-87b9-34e3de8169c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="External\PugiXml\src\pugixml.hpp">
@@ -179,6 +185,18 @@
     <ClInclude Include="EntitySetup.h">
       <Filter>Archivos de encabezado\Cutscene\Setup</Filter>
     </ClInclude>
+    <ClInclude Include="EntityInstruction.h">
+      <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Archivos de encabezado\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelSetup.h">
+      <Filter>Archivos de encabezado\Cutscene\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelInstruction.h">
+      <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="External\PugiXml\src\pugixml.cpp">
@@ -254,6 +272,12 @@
       <Filter>Archivos de origen\Cutscene</Filter>
     </ClCompile>
     <ClCompile Include="EntitySetup.cpp">
+      <Filter>Archivos de origen\Cutscene\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Archivos de origen\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelSetup.cpp">
       <Filter>Archivos de origen\Cutscene\Setup</Filter>
     </ClCompile>
   </ItemGroup>

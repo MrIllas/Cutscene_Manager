@@ -113,6 +113,7 @@ public:
 		}
 
 		RELEASE(item);
+		item = nullptr;
 		--size;
 		return(true);
 	}
@@ -152,6 +153,7 @@ public:
 			}
 		}
 		RELEASE(item);
+		item = nullptr;
 		--size;
 		return(true);
 	}

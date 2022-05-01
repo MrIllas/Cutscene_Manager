@@ -1,6 +1,8 @@
 #include "CutsceneContainer.h"
 #include "CamInstruction.h"
 #include "WaitIntruction.h"
+#include "EntityInstruction.h"
+#include "LabelInstruction.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 
@@ -25,15 +27,18 @@ CutsceneContainer::~CutsceneContainer()
 void CutsceneContainer::AddSetup(pugi::xml_node* element)
 {
 	std::string value = element->name();
+	pugi::xml_node childElement; 
+
 	switch (resolveElement(value))
 	{
 		case ENTITIES:
-			pugi::xml_node entityElement = element->first_child();
+			
+			childElement = element->first_child();
 
-			while (entityElement != NULL)
+			while (childElement != NULL)
 			{
 				//Attributes collection
-				std::string tag = entityElement.attribute("tag").as_string();
+				std::string tag = childElement.attribute("tag").as_string();
 
 				EntitySetup* entity = new EntitySetup(tag);
 
@@ -43,27 +48,27 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 				int height = 32;
 				int layer = 1;
 				float orderInLayer = 3.0f;
-				int scale = 1;
+				float scale = 1;
 				std::string path = "";
 
 				//Position
-				if (entityElement.child("Position") != nullptr)
+				if (childElement.child("Position") != nullptr)
 				{
-					position = { entityElement.child("Position").attribute("posX").as_int(), 
-								entityElement.child("Position").attribute("posY").as_int() };
+					position = { childElement.child("Position").attribute("posX").as_int(),
+								childElement.child("Position").attribute("posY").as_int() };
 				}
 
 				entity->SetPosition(position);
 
 				//Texture
-				if (entityElement.child("Texture") != nullptr)
+				if (childElement.child("Texture") != nullptr)
 				{
-					pugi::xml_node textureElement = entityElement.child("Texture");
+					pugi::xml_node textureElement = childElement.child("Texture");
 					/*width = textureElement.attribute("width").as_int();
 					height = textureElement.attribute("height").as_int();*/
 					layer = textureElement.attribute("layer").as_int();
 					orderInLayer = textureElement.attribute("orderInLayer").as_float();
-					scale = textureElement.attribute("scale").as_int();
+					scale = textureElement.attribute("scale").as_float();
 					path = textureElement.attribute("path").as_string();
 				}
 
@@ -73,9 +78,9 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 				//entity->renderObjects[0].textureCenterY = height;
 
 				//Animations
-				if (entityElement.child("Animations") != nullptr)
+				if (childElement.child("Animations") != nullptr)
 				{
-					pugi::xml_node animationElement = entityElement.child("Animations").first_child();
+					pugi::xml_node animationElement = childElement.child("Animations").first_child();
 
 					while (animationElement != NULL)
 					{
@@ -104,8 +109,20 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 
 				//entities.add(entity);
 
-				entityElement = entityElement.next_sibling();
+				childElement = childElement.next_sibling();
 			}
+			break;
+		case LABEL:
+			std::string tagg = element->attribute("tag").as_string();
+			LabelSetup* lbl = new LabelSetup(element->attribute("tag").as_string(),
+				{ element->attribute("posX").as_int(), element->attribute("posY").as_int() },
+				element->attribute("size").as_int());
+
+			/*if (element->first_child() != nullptr)
+			{
+				lbl->SetText(element->first_child().name());
+			}*/
+
 			break;
 	}
 }
@@ -135,6 +152,16 @@ void CutsceneContainer::AddInstruction(pugi::xml_node* element)
 		case WAIT:
 			instructions.add(new WaitInstruction(element->attribute("time").as_float()));
 			break;
+		case ENTITY_MOVE:
+			instructions.add(new EntityInstruction(element->attribute("tag").as_string(),
+												   element->attribute("speedX").as_int(),
+												   element->attribute("speedY").as_int(),
+												   element->attribute("time").as_float()
+			));
+			break;
+		case LABEL_WRITE:
+
+			break;
 		case INVALID:
 		default:
 
@@ -160,15 +187,15 @@ bool CutsceneContainer::Next()
 	{
 		item = item->next;
 		played = false;
-	}
-
-	if (item->next == nullptr)
+		return true;
+	}else
+	//if (item->next == nullptr)
 	{
 		ClearCutscene();
 
 		return false;
 	}
-	return true;
+	//return true;
 }
 
 void CutsceneContainer::ClearCutscene()
@@ -215,10 +242,13 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 {
 	std::map<std::string, Cut_Element> eleStrings{
 		{"Entities", ENTITIES},
+		{"Label", LABEL},
 		{"Wait", WAIT},
 		{"Camera", CAMERA},
 		{"CameraTarget", CAMERA_TARGET},
-		{"CameraDisplacement", CAMERA_DISPLACEMENT}
+		{"CameraDisplacement", CAMERA_DISPLACEMENT},
+		{"EntityMove", ENTITY_MOVE},
+		{"LabelWrite", LABEL_WRITE}
 	};
 
 	auto itr = eleStrings.find(input);

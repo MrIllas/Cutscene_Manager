@@ -46,6 +46,15 @@ bool Scene::PreUpdate()
 		else if (gameObjects[i]->enable)gameObjects[i]->PreUpdate();
 	}
 
+	for (int i = 0; i < texts.count(); i++)
+	{
+		if (!texts[i]) continue;
+
+		if (texts[i]->pendingToDelate) DestroyText(texts[i]);
+
+		else texts[i]->PreUpdate();
+	}
+
 	return true;
 }
 
@@ -58,6 +67,11 @@ bool Scene::Update()
 		if (gameObjects[i] && gameObjects[i]->enable) gameObjects[i]->Update();
 	}
 
+	for (int i = 0; i < texts.count(); i++)
+	{
+		if (texts[i]) texts[i]->Update();
+	}
+
 	return true;
 }
 
@@ -66,6 +80,11 @@ bool Scene::PostUpdate()
 	for (int i = 0; i < gameObjects.count(); i++)
 	{
 		if (gameObjects[i] && gameObjects[i]->enable) gameObjects[i]->PostUpdate();
+	}
+
+	for (int i = 0; i < texts.count(); i++)
+	{
+		if (texts[i]) texts[i]->PostUpdate();
 	}
 
 	return true;
@@ -82,6 +101,8 @@ bool Scene::CleanUp()
 	}
 
 	gameObjects.clearPtr();
+
+	texts.clearPtr();
 
 	if (app->renderer->camera != nullptr)
 	{
@@ -100,6 +121,8 @@ void Scene::CleanCutscene()
 			gameObjects[i]->CleanUp();
 			RELEASE(gameObjects[i]);
 			gameObjects[i] = nullptr;
+			gameObjects.del(gameObjects.At(i));
+			i--;
 		}
 	}
 }
@@ -124,6 +147,11 @@ GameObject* Scene::GetGameObjectByTag(std::string tag)
 	return nullptr;
 }
 
+void Scene::AddText(Text* text)
+{
+	texts.add(text);
+}
+
 void Scene::DestroyGameObject(GameObject* gameObject)
 {
 	int index = gameObjects.find(gameObject);
@@ -132,6 +160,16 @@ void Scene::DestroyGameObject(GameObject* gameObject)
 	{
 		gameObject->CleanUp();
 		gameObjects.delPtr(gameObjects.At(index));
+	}
+}
+
+void Scene::DestroyText(Text* text)
+{
+	int index = texts.find(text);
+
+	if (index >= 0)
+	{
+		texts.delPtr(texts.At(index));
 	}
 }
 

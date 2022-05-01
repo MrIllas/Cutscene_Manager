@@ -14,6 +14,6 @@ public:
 
 	void Play(float dt = 0.0f) override
 	{
-
+		std::cout << "Waiting" << std::endl;
 	}
 };

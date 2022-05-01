@@ -52,4 +52,6 @@ public:
 	SubInstruction subInstruction = ONE;
 protected:
 	Application* app = nullptr;
+
+	std::string tagged = "";
 };

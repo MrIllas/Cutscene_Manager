@@ -102,6 +102,8 @@
     <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="LabelInstruction.h" />
+    <ClInclude Include="LabelSetup.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
@@ -115,6 +117,7 @@
     <ClInclude Include="ModuleScene.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWindow.h" />
+    <ClInclude Include="EntityInstruction.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="RenderObject.hpp" />
@@ -123,6 +126,7 @@
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="TestScene.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Trigger.h" />
     <ClInclude Include="WaitIntruction.h" />
@@ -135,6 +139,7 @@
     <ClCompile Include="EventListener.cpp" />
     <ClCompile Include="External\PugiXml\src\pugixml.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="LabelSetup.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
@@ -152,6 +157,7 @@
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Trigger.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
