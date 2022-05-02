@@ -15,6 +15,7 @@ enum States
 
 enum SubInstruction
 {
+	JUMPCUT = -1,
 	ONE,
 	TWO,
 	THREE,
@@ -44,7 +45,7 @@ public:
 	{
 	}
 
-	virtual void Play(float dt = 0.0f) {}
+	virtual void Play(float dt = 0.0f, bool JumpCut = false) {}
 
 public:
 	float time = 0;

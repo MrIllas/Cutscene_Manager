@@ -200,7 +200,7 @@
     <ClInclude Include="ImageSetup.h">
       <Filter>Archivos de encabezado\Cutscene\Setup</Filter>
     </ClInclude>
-    <ClInclude Include="Parallel.h">
+    <ClInclude Include="ParallelInstruction.h">
       <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
     </ClInclude>
   </ItemGroup>

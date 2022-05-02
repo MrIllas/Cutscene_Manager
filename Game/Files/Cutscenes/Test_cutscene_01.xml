@@ -24,7 +24,7 @@
 				</Animations>
 			</Entity>
 			
-			<!--<Entity tag="Test2">
+			<Entity tag="Test2">
 				<Position posX="60" posY="0" />
 				<Texture layer="1" orderInLayer="3.0" scale="0.25" path="Assets/Sprites/Entities/Test.png" />
 				<Animations>
@@ -34,19 +34,30 @@
 					<Animation name="Walk_left" loop="true" frames="2" width="70" height="94" line="3" speed="0.10f" />
 					<Animation name="Walk_down" loop="true" frames="2" width="70" height="94" line="4" speed="0.10f" />
 				</Animations>
-			</Entity>-->
+			</Entity>
 		</Entities>
 		<Label tag="Main_lbl" posX="20" posY="20" scale="25" />
 		<Image tag="Test_sqr" path="Assets/Sprites/UI/Test.png" posX="0" posY="0" scale="1" />
 	</Setup>
 	
+	<CameraDisplacement speedX="4.0" speedY="0.0" time="2.0f" />
+	<Wait time="5.0f"/>
 	<LabelWrite tag="Main_lbl" text="Hello There" time="0.0f" />
-	<CameraTarget tag="Test1" time="1.0" />
-	<EntityMove tag="Test1" speedX="1" speedY="0" time="3.0" />
-	<EntityMove tag="Test1" speedX="0" speedY="1" time="3.0" />
+<!--	<CameraTarget tag="Test1" time="1.0" />-->
+<!--	<Parallel>-->
+		<EntityMove tag="Test1" speedX="1" speedY="0" time="3.0" />
+		<!--<EntityMove tag="Test2" speedX="1" speedY="0" time="1.0" />
+	</Parallel>-->
+	<!--<EntityMove tag="Test1" speedX="0" speedY="1" time="3.0" />
 	<EntityMove tag="Test1" speedX="-1" speedY="0" time="3.0" />
-	<EntityMove tag="Test1" speedX="0" speedY="-1" time="3.0" />
+	<EntityMove tag="Test1" speedX="0" speedY="-1" time="3.0" />-->
+	<Wait time="3.0f" />
+	<Jump />
 	<Wait time="5.0f" />
+	<!--<Parallel>
+		<EntityMove tag="Test1" speedX="-1" speedY="0" time="3.0" />
+		<EntityMove tag="Test2" speedX="-1" speedY="0" time="1.0" />
+	</Parallel>-->
 	<!--<LabelWrite tag="Main_lbl" text="General Kenobi!" time="0.0f" />
 	<CameraTarget tag="Test2" time="1.0" />
 	<EntityMove tag="Test2" speedX="1" speedY="0" time="3.0" />

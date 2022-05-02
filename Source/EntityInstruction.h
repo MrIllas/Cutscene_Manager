@@ -13,6 +13,8 @@ public:
 		tagged = tag;
 		speed = { speedX, speedY };
 
+		maxNum = time / 0.0166666666666667f;
+
 		state = CONTINUOUS;
 		subInstruction = ONE;
 	}
@@ -21,17 +23,28 @@ public:
 	{
 	}
 
-	void Play(float dt = 0.0f) override
+	void Play(float dt = 0.0f, bool JumpCut = false) override
 	{
 		if (EXECUTED) return;
 		
 		switch (subInstruction)
 		{
 		case ONE://Makes Entity Walk
-			std::cout << "Moving Entity" << std::endl;
+			//::cout << "Moving Entity" << std::endl;
+			num++;
+			std::cout << num << std::endl;
 
 			EntitySetup* aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
-			iPoint iAux = { aux->GetPosition().x + speed.x, aux->GetPosition().y + speed.y };
+			iPoint iAux = { 0 , 0 };
+
+			if (JumpCut)
+			{
+				maxNum = maxNum - num;
+				speed.x = speed.x * maxNum;
+				speed.y = speed.y * maxNum;
+			}
+
+			iAux = { aux->GetPosition().x + speed.x, aux->GetPosition().y + speed.y };
 
 			if (speed.y < 0)
 			{ //Move Up
@@ -63,5 +76,6 @@ public:
 private:
 	iPoint position;
 	iPoint speed;
-
+	int num = 0;
+	int maxNum = 0;
 };

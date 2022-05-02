@@ -27,8 +27,6 @@ public:
 	bool LoadInstructions(pugi::xml_node instructions);
 	void Play();
 	//bool LoadnPlay(std::string path);
-	void Pause();
-	void Skip();
 
 	bool Clear();
 
@@ -36,6 +34,7 @@ private:
 	pugi::xml_document file;
 	std::string folder = "";
 	bool playing = false;
+	bool jumpCut = false;
 
 	CutsceneContainer container;
 	float delay = 0.0f;

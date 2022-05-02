@@ -1,4 +1,6 @@
 #include "ModuleCutscene.h"
+#include "ModuleInput.h"
+#include "ModuleRender.h"
 
 #include <iostream>
 
@@ -32,7 +34,27 @@ bool ModuleCutscene::Start()
 
 UpdateStatus ModuleCutscene::PreUpdate()
 {
-	
+	if (!playing) return UpdateStatus::UPDATE_CONTINUE;
+
+	//Skip / Cut cutscene
+	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+	{
+		container.ClearCutscene();
+		playing = false;
+		jumpCut = false;
+	}
+
+	//Jump
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	{
+		jumpCut = true;
+
+		if (container.IsContinuous())
+		{
+			container.PlayCInstruction(clock.getDeltaTime(), jumpCut);
+		}
+	}
+
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -44,7 +66,7 @@ UpdateStatus ModuleCutscene::Update()
 	if(!playing) return UpdateStatus::UPDATE_CONTINUE;
 	//clock.Update();
 
-	if (delay <= clock.getDeltaTime()) //Time passed
+	if (delay <= clock.getDeltaTime() || jumpCut) //Time passed
 	{
 		playing = container.Next();
 
@@ -53,17 +75,22 @@ UpdateStatus ModuleCutscene::Update()
 
 		delay = container.currentTime();// *1000;
 		clock.Reset();
-		//std::cout << time << ", " << app->globalTime.getExecuteTime() << std::endl;
 		
-		if (!container.isContinuous())
+
+		if (!container.IsContinuous())
 		{
-			container.PlayInstruction();
+			container.PlayInstruction(jumpCut);
+		}
+		else if (container.IsJump())
+		{ //JumpCut Finish
+			jumpCut = false;
+			//return UpdateStatus::UPDATE_CONTINUE;
 		}
 	}
 	
-	if (container.isContinuous())
+	if (container.IsContinuous())
 	{
-		container.PlayCInstruction(clock.getDeltaTime());
+		container.PlayCInstruction(clock.getDeltaTime(), jumpCut);
 	}
 
 	return UpdateStatus::UPDATE_CONTINUE;
@@ -77,6 +104,7 @@ UpdateStatus ModuleCutscene::PostUpdate()
 
 bool ModuleCutscene::Load(std::string filename)
 {
+	if (playing) return false;
 	bool ret = true;
 
 	std::string tmp = folder + filename;
@@ -128,18 +156,6 @@ void ModuleCutscene::Play()
 	clock.Reset();
 	delay = 0.0f;
 }
-
-void ModuleCutscene::Pause()
-{
-
-
-}
-
-void ModuleCutscene::Skip()
-{
-
-}
-
 
 void ModuleCutscene::GetSaveData(pugi::xml_document& save)
 {

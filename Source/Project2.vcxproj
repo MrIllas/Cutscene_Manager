@@ -119,7 +119,7 @@
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="EntityInstruction.h" />
-    <ClInclude Include="Parallel.h" />
+    <ClInclude Include="ParallelInstruction.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="RenderObject.hpp" />

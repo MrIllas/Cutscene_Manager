@@ -30,7 +30,7 @@ public:
 
 	}
 
-	void Play(float dt = 0.0f) override
+	void Play(float dt = 0.0f, bool JumpCut = false) override
 	{
 		if (EXECUTED) return;
 
@@ -52,7 +52,6 @@ public:
 
 				break;
 		}
-		
 
 		if (state = ONCE)
 		{

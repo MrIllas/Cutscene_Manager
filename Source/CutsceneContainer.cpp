@@ -3,6 +3,7 @@
 #include "WaitIntruction.h"
 #include "EntityInstruction.h"
 #include "LabelInstruction.h"
+#include "ParallelInstruction.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 
@@ -10,7 +11,9 @@
 
 CutsceneContainer::CutsceneContainer()
 {
+	app = Application::GetInstance();
 
+	camInit = { app->renderer->camera->x, app->renderer->camera->y };
 }
 
 CutsceneContainer::~CutsceneContainer()
@@ -73,7 +76,7 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 				}
 
 				//Entity declaration
-				entity->renderObjects[0].InitAsTexture(Application::GetInstance()->textures->Load(path), { 0 , 0 }, { 0, 0, 0, 0 }, scale, layer, orderInLayer);
+				entity->renderObjects[0].InitAsTexture(app->textures->Load(path), { 0 , 0 }, { 0, 0, 0, 0 }, scale, layer, orderInLayer);
 				//entity->renderObjects[0].textureCenterX = width;
 				//entity->renderObjects[0].textureCenterY = height;
 
@@ -138,48 +141,73 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 
 void CutsceneContainer::AddInstruction(pugi::xml_node* element)
 {
+	instructions.add(ReturnInstruction(element));
+}
+
+CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
+{
 	std::string value = element->name();
 	switch (resolveElement(value))
 	{
 		case CAMERA:
-			instructions.add(new CamInstruction(element->attribute("posX").as_int(),
+			return new CamInstruction(element->attribute("posX").as_int(),
 												element->attribute("posY").as_int(),
 												element->attribute("time").as_float()
-			));
+			);
 			break;
 		case CAMERA_TARGET:
-			instructions.add(new CamInstruction(element->attribute("tag").as_string(),
+			return new CamInstruction(element->attribute("tag").as_string(),
 												element->attribute("time").as_float()
-			));
+			);
 			break;
 		case CAMERA_DISPLACEMENT:
-			instructions.add(new CamInstruction(element->attribute("speedX").as_float(),
+			return new CamInstruction(element->attribute("speedX").as_float(),
 												element->attribute("speedY").as_float(),
 												element->attribute("time").as_float()
-			));
+			);
 			break;
 		case WAIT:
-			instructions.add(new WaitInstruction(element->attribute("time").as_float()));
+			return new WaitInstruction(element->attribute("time").as_float());
+			break;
+		case JUMP:
+			return new WaitInstruction();
 			break;
 		case ENTITY_MOVE:
-			instructions.add(new EntityInstruction(element->attribute("tag").as_string(),
+			return new EntityInstruction(element->attribute("tag").as_string(),
 												   element->attribute("speedX").as_int(),
 												   element->attribute("speedY").as_int(),
 												   element->attribute("time").as_float()
-			));
+			);
 			break;
 		case LABEL_WRITE:
-			instructions.add(new LabelInstruction(element->attribute("tag").as_string(),
+			return new LabelInstruction(element->attribute("tag").as_string(),
 												  element->attribute("text").as_string(),
 												  element->attribute("time").as_float()
-			));
+			);
 			break;
 		case LABEL_CLEAR:
-			instructions.add(new LabelInstruction(element->attribute("tag").as_string()));
+			return new LabelInstruction(element->attribute("tag").as_string());
+			break;
+		case PARALLEL:
+
+			if (element != nullptr) {
+				pugi::xml_node ele = element->first_child();
+
+				ParallelInstruction* pll = new ParallelInstruction(2.0f);
+
+				while (ele != NULL)
+				{
+					pll->AddInstruction(ReturnInstruction(&ele));
+
+					ele = ele.next_sibling();
+				}
+
+				return pll;
+			}
 			break;
 		case INVALID:
 		default:
-
+			return nullptr;
 			break;
 	}
 }
@@ -215,12 +243,16 @@ bool CutsceneContainer::Next()
 
 void CutsceneContainer::ClearCutscene()
 {
-	Application::GetInstance()->scene->scenes[Application::GetInstance()->scene->currentScene]->CleanCutscene();
+	app->scene->scenes[app->scene->currentScene]->CleanCutscene();
 
-	if (Application::GetInstance()->renderer->camera != nullptr)
+	if (app->renderer->camera != nullptr)
 	{
-		Application::GetInstance()->renderer->camera->ReleaseTarget();
+		app->renderer->camera->ReleaseTarget();
 	}
+
+	app->renderer->camera->x = camInit.x;
+	app->renderer->camera->y = camInit.y;
+
 }
 
 /// <summary>
@@ -228,7 +260,7 @@ void CutsceneContainer::ClearCutscene()
 /// </summary>
 /// <returns>Is Continuous = TRUE
 ///			Isn't Continuous = FALSE</returns>
-bool CutsceneContainer::isContinuous()
+bool CutsceneContainer::IsContinuous()
 {
 	if (item->data == nullptr) return false;
 
@@ -240,17 +272,29 @@ bool CutsceneContainer::isContinuous()
 	return false;
 }
 
-void CutsceneContainer::PlayInstruction()
+bool CutsceneContainer::IsJump()
+{
+	if (item->data == nullptr) return false;
+
+	if (item->data->subInstruction == JUMPCUT)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void CutsceneContainer::PlayInstruction(bool jumpCut)
 {
 	if (played) return;
 
-	item->data->Play();
+	item->data->Play(0.0f, jumpCut);
 	played = false;
 }
 
-void CutsceneContainer::PlayCInstruction(float dt)
+void CutsceneContainer::PlayCInstruction(float dt, bool jumpCut)
 {
-	item->data->Play(dt);
+	item->data->Play(dt, jumpCut);
 }
 
 Cut_Element CutsceneContainer::resolveElement(std::string input)
@@ -260,12 +304,14 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 		{"Label", LABEL},
 		{"Image", IMAGE},
 		{"Wait", WAIT},
+		{"Jump", JUMP},
 		{"Camera", CAMERA},
 		{"CameraTarget", CAMERA_TARGET},
 		{"CameraDisplacement", CAMERA_DISPLACEMENT},
 		{"EntityMove", ENTITY_MOVE},
 		{"LabelWrite", LABEL_WRITE},
-		{"LabelClear", LABEL_CLEAR}
+		{"LabelClear", LABEL_CLEAR},
+		{"Parallel", PARALLEL}
 	};
 
 	auto itr = eleStrings.find(input);

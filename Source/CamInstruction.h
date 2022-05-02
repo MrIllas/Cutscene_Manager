@@ -33,6 +33,8 @@ public:
 	{
 		speed = { speedX, speedY };
 
+		maxNum = time / 0.0166666666666667f;
+
 		state = CONTINUOUS;
 		subInstruction = THREE;
 	}
@@ -41,7 +43,7 @@ public:
 	{
 	}
 
-	void Play(float dt = 0.0f) override
+	void Play(float dt = 0.0f, bool JumpCut = false) override
 	{
 		if (EXECUTED) return;
 		//else if (CONTINUOUS) 
@@ -60,8 +62,16 @@ public:
 			break;
 		case THREE://Camera displacement
 			std::cout << "Displacing camera" << std::endl;
-			app->renderer->camera->x -= speed.x * dt;
-			app->renderer->camera->y -= speed.y * dt;
+			num++;
+			if (JumpCut)
+			{
+				maxNum = maxNum - num;
+				speed.x = speed.x * maxNum;
+				speed.y = speed.y * maxNum;
+			}
+
+			app->renderer->camera->x -= (speed.x) * -1;
+			app->renderer->camera->y -= (speed.y) * -1;
 			
 			break;
 		}
@@ -75,4 +85,6 @@ public:
 private:
 	iPoint position;
 	fPoint speed;
+	int num = 0;
+	int maxNum = 0;
 };

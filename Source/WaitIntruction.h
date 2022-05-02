@@ -12,18 +12,25 @@ public:
 		subInstruction = ONE;
 	}
 
-	WaitInstruction() : CutInstruction(time)
+	/*WaitInstruction() : CutInstruction(time)
 	{
 
 		state = CONTINUOUS;
 		subInstruction = TWO;
+	}*/
+
+	WaitInstruction() : CutInstruction(time)
+	{
+		time = 0.0f;
+		state = CONTINUOUS;
+		subInstruction = JUMPCUT;
 	}
 
 	~WaitInstruction()
 	{
 	}
 
-	void Play(float dt = 0.0f) override
+	void Play(float dt = 0.0f, bool JumpCut = false) override
 	{
 		if (EXECUTED) return;
 		

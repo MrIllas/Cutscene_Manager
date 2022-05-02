@@ -14,13 +14,14 @@ enum Cut_Element
 	LABEL,
 	IMAGE,
 	WAIT,
+	JUMP,
 	CAMERA,
 	CAMERA_TARGET,
 	CAMERA_DISPLACEMENT,
 	ENTITY_MOVE,
 	LABEL_WRITE,
-	LABEL_CLEAR
-	
+	LABEL_CLEAR,
+	PARALLEL	
 };
 
 enum Animation_Setup
@@ -49,12 +50,14 @@ public:
 	void AddSetup(pugi::xml_node* element);
 
 	void AddInstruction(pugi::xml_node* element);
+	CutInstruction* ReturnInstruction(pugi::xml_node* element);
 	float currentTime();
 
 	bool Next();
-	bool isContinuous();
-	void PlayInstruction();
-	void PlayCInstruction(float dt);
+	bool IsContinuous();
+	bool IsJump();
+	void PlayInstruction(bool jumpCut = false);
+	void PlayCInstruction(float dt, bool jumpCut = false);
 
 	void ClearCutscene();
 
@@ -69,5 +72,8 @@ private:
 	List<EntitySetup*> entities;
 	ListItem<CutInstruction*>* item = nullptr;
 
+	iPoint camInit = { 0,0 };
+
+	Application* app = nullptr;
 };
 
