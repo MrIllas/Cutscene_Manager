@@ -109,7 +109,7 @@ bool GameObject::CompareTag(std::string tag)
 	return false;
 }
 
-iPoint GameObject::GetDrawPosition(int index)
+fPoint GameObject::GetDrawPosition(int index)
 {
 	if (pBody != nullptr)
 	{
@@ -120,7 +120,7 @@ iPoint GameObject::GetDrawPosition(int index)
 		pos.x = METERS_TO_PIXELS(pos.x) - renderObjects[index].textureCenterX;
 		pos.y = METERS_TO_PIXELS(pos.y) - renderObjects[index].textureCenterY;	
 
-		return { (int)pos.x, (int)pos.y };
+		return { pos.x, pos.y };
 	}
 
 	return position;
@@ -153,7 +153,7 @@ float GameObject::GetDegreeAngle()
 	return this->rotation;
 }
 
-iPoint GameObject::GetPosition()
+fPoint GameObject::GetPosition()
 {
 	if (pBody != nullptr)
 	{
@@ -163,15 +163,15 @@ iPoint GameObject::GetPosition()
 		pos.x = METERS_TO_PIXELS(pos.x);
 		pos.y = METERS_TO_PIXELS(pos.y);
 
-		return { (int)pos.x, (int)pos.y };
+		return { pos.x, pos.y };
 	}
 
 	return this->position;
 }
 
-iPoint GameObject::GetScreenPosition()
+fPoint GameObject::GetScreenPosition()
 {
-	iPoint pos = GetPosition();
+	fPoint pos = GetPosition();
 	pos.x = (int)(-app->renderer->camera->x + pos.x * app->window->scale);
 	pos.y = (int)(-app->renderer->camera->y + pos.y * app->window->scale);
 	return pos;
@@ -187,7 +187,7 @@ b2Vec2 GameObject::GetLinearVelocity()
 	return { 0,0 };
 }
 
-void GameObject::SetPosition(iPoint pos)
+void GameObject::SetPosition(fPoint pos)
 {
 	if (pBody != nullptr)
 	{

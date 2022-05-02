@@ -33,10 +33,10 @@ public:
 		case ONE://Makes Entity Walk
 			//::cout << "Moving Entity" << std::endl;
 			num++;
-			std::cout << num << std::endl;
+			//std::cout << num << std::endl;
 
 			EntitySetup* aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
-			iPoint iAux = { 0 , 0 };
+			fPoint iAux = { 0 , 0 };
 
 			if (JumpCut)
 			{
@@ -44,8 +44,8 @@ public:
 				speed.x = speed.x * maxNum;
 				speed.y = speed.y * maxNum;
 			}
-
-			iAux = { aux->GetPosition().x + (speed.x), aux->GetPosition().y + (speed.y) };
+			
+			iAux = { aux->GetPosition().x + (speed.x * Application::GetInstance()->dt), aux->GetPosition().y + (speed.y * Application::GetInstance()->dt) };
 
 			if (speed.y < 0)
 			{ //Move Up

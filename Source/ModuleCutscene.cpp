@@ -64,7 +64,6 @@ UpdateStatus ModuleCutscene::Update()
 	//std::cout << clock.getDeltaTime() << std::endl;
 	//clock.Reset();
 	if(!playing) return UpdateStatus::UPDATE_CONTINUE;
-	//clock.Update();
 
 	if (delay <= clock.getDeltaTime() || (jumpCut && !container.isLoop())) //Time passed
 	{

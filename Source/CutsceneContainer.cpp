@@ -46,7 +46,7 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 
 				EntitySetup* entity = new EntitySetup(tag);
 
-				iPoint position = { 0 , 0 };
+				fPoint position = { 0 , 0 };
 
 				int width = 32;
 				int height = 32;
@@ -58,8 +58,8 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 				//Position
 				if (childElement.child("Position") != nullptr)
 				{
-					position = { childElement.child("Position").attribute("posX").as_int(),
-								childElement.child("Position").attribute("posY").as_int() };
+					position = { childElement.child("Position").attribute("posX").as_float(),
+								childElement.child("Position").attribute("posY").as_float() };
 				}
 
 				entity->SetPosition(position);
@@ -133,7 +133,7 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 		case IMAGE:
 			ImageSetup* img = new ImageSetup(element->attribute("tag").as_string(),
 											 element->attribute("path").as_string(),
-											{ element->attribute("posX").as_int(), element->attribute("posY").as_int() },
+											{ element->attribute("posX").as_float(), element->attribute("posY").as_float() },
 											 element->attribute("scale").as_int()
 			);
 			break;

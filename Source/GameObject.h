@@ -64,7 +64,7 @@ public:
 
 	bool CompareTag(std::string tag);
 
-	iPoint GetDrawPosition(int index = 0);
+	fPoint GetDrawPosition(int index = 0);
 
 	void UpdateOrderInLayer(int index = 0);
 
@@ -78,9 +78,9 @@ public:
 	/// Si exixte pBody devuelve position de pBody, si no el de GameObject (px)
 	/// </summary>
 	/// <returns>position en pixel</returns>
-	iPoint GetPosition();
+	fPoint GetPosition();
 
-	iPoint GetScreenPosition();
+	fPoint GetScreenPosition();
 
 	/// <summary>
 	/// Si exixte pBody devuelve position de pBody, si no {0,0}
@@ -91,7 +91,7 @@ public:
 	/// Si exixte pBody, cambia la position de pBody, si no la de GameObject
 	/// </summary>
 	/// <param name="pos">= position in pixel</param>
-	void SetPosition(iPoint pos);
+	void SetPosition(fPoint pos);
 
 	/// <summary>
 	/// Si exixte pBody, cambia el amgulo de pBody, si no el de GameObject
@@ -113,7 +113,7 @@ protected:
 protected:
 	Application* app = nullptr;
 
-	iPoint position = { 0,0 };
+	fPoint position = { 0,0 };
 
 	float rotation = 0;
 

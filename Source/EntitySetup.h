@@ -19,7 +19,7 @@ public:
 public:
 	void SetAnimation(int direction);
 
-	void SetPosition(iPoint position);
+	void SetPosition(fPoint position);
 
 public:
 	Animation animations[11];

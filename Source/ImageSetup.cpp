@@ -3,7 +3,7 @@
 #include "ModuleRender.h"
 
 
-ImageSetup::ImageSetup(std::string tag,std::string path, iPoint imgPos, int scale) : GameObject ("EntitySetup", tag)
+ImageSetup::ImageSetup(std::string tag,std::string path, fPoint imgPos, int scale) : GameObject ("EntitySetup", tag)
 {
 	position = imgPos;
 	this->scale = scale;

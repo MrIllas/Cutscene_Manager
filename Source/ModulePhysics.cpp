@@ -147,7 +147,7 @@ PhysBody* ModulePhysics::CreateCircle(int x, int y, int radius, GameObject* game
 	return pbody;
 }
 
-PhysBody* ModulePhysics::CreateRectangle(iPoint pos, int width, int height, GameObject* gameObject, b2BodyType colType, short filterLayer)
+PhysBody* ModulePhysics::CreateRectangle(fPoint pos, int width, int height, GameObject* gameObject, b2BodyType colType, short filterLayer)
 {
 	b2BodyDef body;
 	body.type = colType;
@@ -177,7 +177,7 @@ PhysBody* ModulePhysics::CreateRectangle(iPoint pos, int width, int height, Game
 	return pbody;
 }
 
-PhysBody* ModulePhysics::CreateRectangleSensor(iPoint pos, int width, int height, GameObject* g, b2BodyType colType, short filterLayer)
+PhysBody* ModulePhysics::CreateRectangleSensor(fPoint pos, int width, int height, GameObject* g, b2BodyType colType, short filterLayer)
 {
 	b2BodyDef body;
 	body.type = colType;

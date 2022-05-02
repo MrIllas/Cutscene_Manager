@@ -11,7 +11,7 @@
 /// <param name="parent"></param>
 /// <param name="name"></param>
 /// <param name="follow"></param>
-Trigger::Trigger(iPoint pos, int width, int height, GameObject* parent, std::string name, bool follow) : GameObject(name, name)
+Trigger::Trigger(fPoint pos, int width, int height, GameObject* parent, std::string name, bool follow) : GameObject(name, name)
 {
 	pBody = app->physics->CreateRectangleSensor(pos, width, height, this);
 	followFather = follow;
@@ -26,7 +26,7 @@ Trigger::Trigger(iPoint pos, int width, int height, GameObject* parent, std::str
 /// <param name="parent"></param>
 /// <param name="name"></param>
 /// <param name="follow"></param>
-Trigger::Trigger(iPoint pos, int radius, GameObject* parent, std::string name, bool follow) : GameObject(name, name)
+Trigger::Trigger(fPoint pos, int radius, GameObject* parent, std::string name, bool follow) : GameObject(name, name)
 {
 	pBody = app->physics->CreateCircle(pos.x, pos.y, radius, this, true);
 	followFather = follow;

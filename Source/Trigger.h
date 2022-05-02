@@ -6,8 +6,8 @@
 class Trigger : public GameObject
 {
 public:
-	Trigger(iPoint pos, int width, int height, GameObject* parent = nullptr, std::string name = "Trigger", bool follow = true);
-	Trigger(iPoint pos, int radius, GameObject* parent = nullptr, std::string name = "Trigger", bool follow = true);
+	Trigger(fPoint pos, int width, int height, GameObject* parent = nullptr, std::string name = "Trigger", bool follow = true);
+	Trigger(fPoint pos, int radius, GameObject* parent = nullptr, std::string name = "Trigger", bool follow = true);
 
 	void Update() override;
 
@@ -21,7 +21,7 @@ public:
 
 	GameObject* GetParent() { return parent; }
 
-	iPoint positionOffset = { 0,0 };
+	fPoint positionOffset = { 0,0 };
 
 	bool onTriggerEnter = false;
 

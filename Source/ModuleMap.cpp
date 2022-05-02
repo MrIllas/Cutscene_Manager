@@ -81,7 +81,7 @@ void ModuleMap::Draw(ListItem<MapLayer*>* mapLayerItem)
 
 				try
 				{
-					app->renderer->AddTextureRenderQueue(tileset->texture, iPoint(pos.x, pos.y), r, 1, 0, 0.5f);
+					app->renderer->AddTextureRenderQueue(tileset->texture, fPoint(pos.x, pos.y), r, 1, 0, 0.5f);
 				}
 				catch (const std::exception& e)
 				{

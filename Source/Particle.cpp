@@ -1,6 +1,6 @@
 #include "Particle.h"
 
-Particle::Particle(iPoint position,float life, float delay, iPoint velocity, std::string name):GameObject("particle","Particle")
+Particle::Particle(fPoint position,float life, float delay, fPoint velocity, std::string name):GameObject("particle","Particle")
 {
 	this->life = life;
 	this->delay = delay;

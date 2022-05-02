@@ -35,7 +35,7 @@ void EntitySetup::SetAnimation(int direction)
 	currentAnimation = direction;
 }
 
-void EntitySetup::SetPosition(iPoint position)
+void EntitySetup::SetPosition(fPoint position)
 {
 	this->position = position;
 }

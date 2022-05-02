@@ -41,12 +41,28 @@
 	</Setup>
 	
 	<CameraTarget tag="Test1" time="0.0f" />
-	<Loop ite="3">
-		<EntityMove tag="Test1" speedX="1" speedY="0" time="3.0" />
-		<EntityMove tag="Test1" speedX="0" speedY="1" time="3.0" />
-		<EntityMove tag="Test1" speedX="-1" speedY="0" time="3.0" />
-		<EntityMove tag="Test1" speedX="0" speedY="-1" time="3.0" />
+	<!--<Loop ite="3">
+		<EntityMove tag="Test1" speedX="120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="120" time="3.0" />
+		<EntityMove tag="Test1" speedX="-120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="-120" time="3.0" />
 	</Loop>
+	-->
+	<EntityMove tag="Test1" speedX="120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="120" time="3.0" />
+		<EntityMove tag="Test1" speedX="-120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="-120" time="3.0" />
+		
+		<EntityMove tag="Test1" speedX="120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="120" time="3.0" />
+		<EntityMove tag="Test1" speedX="-120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="-120" time="3.0" />
+		
+		<EntityMove tag="Test1" speedX="120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="120" time="3.0" />
+		<EntityMove tag="Test1" speedX="-120" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="-120" time="3.0" />
+	
 	<Jump />
 	<Wait time="5.0" />
 	
