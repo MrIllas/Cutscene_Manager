@@ -17,12 +17,14 @@ public:
 	void CleanUp() override;
 
 public:
-	void SetAnimation();
+	void SetAnimation(int direction);
 
 	void SetPosition(iPoint position);
 
 public:
-	Animation animations[10];
+	Animation animations[11];
+
+	int currentAnimation = 0;
 
 };
 

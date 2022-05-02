@@ -3,9 +3,6 @@
 #include "Text.h"
 
 
-class Sensor;
-class Trigger;
-
 class LabelSetup : public GameObject
 {
 public:

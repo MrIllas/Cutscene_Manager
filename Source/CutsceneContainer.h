@@ -5,23 +5,27 @@
 #include "CutInstruction.h"
 #include "EntitySetup.h"
 #include "LabelSetup.h"
+#include "ImageSetup.h"
 
 enum Cut_Element
 {
 	INVALID,
 	ENTITIES,
 	LABEL,
+	IMAGE,
 	WAIT,
 	CAMERA,
 	CAMERA_TARGET,
 	CAMERA_DISPLACEMENT,
 	ENTITY_MOVE,
-	LABEL_WRITE
+	LABEL_WRITE,
+	LABEL_CLEAR
 	
 };
 
 enum Animation_Setup
 {
+	IDLE,
 	WALK_UP,
 	WALK_DOWN,
 	WALK_LEFT,

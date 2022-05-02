@@ -197,6 +197,12 @@
     <ClInclude Include="LabelInstruction.h">
       <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
     </ClInclude>
+    <ClInclude Include="ImageSetup.h">
+      <Filter>Archivos de encabezado\Cutscene\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="Parallel.h">
+      <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="External\PugiXml\src\pugixml.cpp">
@@ -278,6 +284,9 @@
       <Filter>Archivos de origen\GUI</Filter>
     </ClCompile>
     <ClCompile Include="LabelSetup.cpp">
+      <Filter>Archivos de origen\Cutscene\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageSetup.cpp">
       <Filter>Archivos de origen\Cutscene\Setup</Filter>
     </ClCompile>
   </ItemGroup>

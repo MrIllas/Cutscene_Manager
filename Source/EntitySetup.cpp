@@ -17,8 +17,10 @@ void EntitySetup::Start()
 
 void EntitySetup::PostUpdate()
 {
-	animations[0].Update();
-	renderObjects[0].section = animations[0].GetCurrentFrame();
+	animations[currentAnimation].Update();
+	renderObjects[0].section = animations[currentAnimation].GetCurrentFrame();
+
+	currentAnimation = 0;
 
 	GameObject::PostUpdate();
 }
@@ -28,9 +30,9 @@ void EntitySetup::CleanUp()
 
 }
 
-void EntitySetup::SetAnimation()
+void EntitySetup::SetAnimation(int direction)
 {
-
+	currentAnimation = direction;
 }
 
 void EntitySetup::SetPosition(iPoint position)

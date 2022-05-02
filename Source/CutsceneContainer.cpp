@@ -94,7 +94,7 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 
 						for (int i = 0; i < frames; i++)
 						{
-							entity->animations[resolveAnimation(name)].PushBack({ width * i, line * i, width, height });
+							entity->animations[resolveAnimation(name)].PushBack({ width * i, line * height, width, height });
 							
 						}
 
@@ -113,16 +113,25 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 			}
 			break;
 		case LABEL:
-			std::string tagg = element->attribute("tag").as_string();
-			LabelSetup* lbl = new LabelSetup(element->attribute("tag").as_string(),
-				{ element->attribute("posX").as_int(), element->attribute("posY").as_int() },
-				element->attribute("size").as_int());
+			if (element != nullptr) {
+				LabelSetup* lbl = new LabelSetup(element->attribute("tag").as_string(),
+					{ element->attribute("posX").as_int(), element->attribute("posY").as_int() },
+					element->attribute("scale").as_int());
+			};
+			
 
 			/*if (element->first_child() != nullptr)
 			{
 				lbl->SetText(element->first_child().name());
 			}*/
 
+			break;
+		case IMAGE:
+			ImageSetup* img = new ImageSetup(element->attribute("tag").as_string(),
+											 element->attribute("path").as_string(),
+											{ element->attribute("posX").as_int(), element->attribute("posY").as_int() },
+											 element->attribute("scale").as_int()
+			);
 			break;
 	}
 }
@@ -160,7 +169,13 @@ void CutsceneContainer::AddInstruction(pugi::xml_node* element)
 			));
 			break;
 		case LABEL_WRITE:
-
+			instructions.add(new LabelInstruction(element->attribute("tag").as_string(),
+												  element->attribute("text").as_string(),
+												  element->attribute("time").as_float()
+			));
+			break;
+		case LABEL_CLEAR:
+			instructions.add(new LabelInstruction(element->attribute("tag").as_string()));
 			break;
 		case INVALID:
 		default:
@@ -243,12 +258,14 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 	std::map<std::string, Cut_Element> eleStrings{
 		{"Entities", ENTITIES},
 		{"Label", LABEL},
+		{"Image", IMAGE},
 		{"Wait", WAIT},
 		{"Camera", CAMERA},
 		{"CameraTarget", CAMERA_TARGET},
 		{"CameraDisplacement", CAMERA_DISPLACEMENT},
 		{"EntityMove", ENTITY_MOVE},
-		{"LabelWrite", LABEL_WRITE}
+		{"LabelWrite", LABEL_WRITE},
+		{"LabelClear", LABEL_CLEAR}
 	};
 
 	auto itr = eleStrings.find(input);
@@ -263,6 +280,7 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 Animation_Setup CutsceneContainer::resolveAnimation(std::string input)
 {
 	std::map<std::string, Animation_Setup> eleStrings{
+		{"Idle", IDLE},
 		{"Walk_up", WALK_UP},
 		{"Walk_down", WALK_DOWN},
 		{"Walk_left", WALK_LEFT},

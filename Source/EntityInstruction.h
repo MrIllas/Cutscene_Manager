@@ -30,8 +30,26 @@ public:
 		case ONE://Makes Entity Walk
 			std::cout << "Moving Entity" << std::endl;
 
-			GameObject* aux = app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged);
+			EntitySetup* aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
 			iPoint iAux = { aux->GetPosition().x + speed.x, aux->GetPosition().y + speed.y };
+
+			if (speed.y < 0)
+			{ //Move Up
+				aux->SetAnimation(WALK_UP);
+			}
+			if (speed.y > 0)
+			{ //Move Down
+				aux->SetAnimation(WALK_DOWN);
+			}
+			if (speed.x > 0)
+			{ //Move Right
+				aux->SetAnimation(WALK_RIGHT);
+			}
+			if (speed.x < 0)
+			{ //Move Left
+				aux->SetAnimation(WALK_LEFT);
+			}
+
 			aux->SetPosition(iAux);
 			break;
 		}
