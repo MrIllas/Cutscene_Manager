@@ -66,7 +66,7 @@ UpdateStatus ModuleCutscene::Update()
 	if(!playing) return UpdateStatus::UPDATE_CONTINUE;
 	//clock.Update();
 
-	if (delay <= clock.getDeltaTime() || jumpCut) //Time passed
+	if (delay <= clock.getDeltaTime() || (jumpCut && !container.isLoop())) //Time passed
 	{
 		playing = container.Next();
 
@@ -152,6 +152,7 @@ bool ModuleCutscene::Load(std::string filename)
 void ModuleCutscene::Play()
 {
 	playing = true;
+	jumpCut = false;
 
 	clock.Reset();
 	delay = 0.0f;

@@ -148,6 +148,7 @@ void CutsceneContainer::AddInstruction(pugi::xml_node* element)
 CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
 {
 	std::string value = element->name();
+	pugi::xml_node ele;
 	switch (resolveElement(value))
 	{
 		case CAMERA:
@@ -190,9 +191,8 @@ CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
 			return new LabelInstruction(element->attribute("tag").as_string());
 			break;
 		case PARALLEL:
-
 			if (element != nullptr) {
-				pugi::xml_node ele = element->first_child();
+				ele = element->first_child();
 
 				ParallelInstruction* pll = new ParallelInstruction(2.0f);
 
@@ -204,6 +204,23 @@ CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
 				}
 
 				return pll;
+			}
+			break;
+		case LOOP:
+			if (element != nullptr)
+			{
+				ele = element->first_child();
+
+				LoopInstruction* lp = new LoopInstruction(element->attribute("ite").as_int());
+
+				while (ele != NULL)
+				{
+					lp->AddInstruction(ReturnInstruction(&ele));
+
+					ele = ele.next_sibling();
+				}
+				
+				return lp;
 			}
 			break;
 		case INVALID:
@@ -265,7 +282,7 @@ bool CutsceneContainer::IsContinuous()
 {
 	if (item->data == nullptr) return false;
 
-	if(item->data->state == 1)
+	if(item->data->state == CONTINUOUS)
 	{
 		return true;
 	}
@@ -278,6 +295,18 @@ bool CutsceneContainer::IsJump()
 	if (item->data == nullptr) return false;
 
 	if (item->data->subInstruction == JUMPCUT)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool CutsceneContainer::isLoop()
+{
+	if (item->data == nullptr) return false;
+
+	if (item->data->subInstruction == LOOPCUT)
 	{
 		return true;
 	}
@@ -312,7 +341,8 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 		{"EntityMove", ENTITY_MOVE},
 		{"LabelWrite", LABEL_WRITE},
 		{"LabelClear", LABEL_CLEAR},
-		{"Parallel", PARALLEL}
+		{"Parallel", PARALLEL},
+		{"Loop", LOOP}
 	};
 
 	auto itr = eleStrings.find(input);

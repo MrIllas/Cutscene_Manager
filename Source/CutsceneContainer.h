@@ -21,7 +21,8 @@ enum Cut_Element
 	ENTITY_MOVE,
 	LABEL_WRITE,
 	LABEL_CLEAR,
-	PARALLEL	
+	PARALLEL,
+	LOOP
 };
 
 enum Animation_Setup
@@ -56,6 +57,7 @@ public:
 	bool Next();
 	bool IsContinuous();
 	bool IsJump();
+	bool isLoop();
 	void PlayInstruction(bool jumpCut = false);
 	void PlayCInstruction(float dt, bool jumpCut = false);
 

@@ -203,6 +203,9 @@
     <ClInclude Include="ParallelInstruction.h">
       <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
     </ClInclude>
+    <ClInclude Include="LoopInstruction.h">
+      <Filter>Archivos de encabezado\Cutscene\CutsceneInstructions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="External\PugiXml\src\pugixml.cpp">

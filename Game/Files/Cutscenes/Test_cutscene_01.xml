@@ -40,20 +40,30 @@
 		<Image tag="Test_sqr" path="Assets/Sprites/UI/Test.png" posX="0" posY="0" scale="1" />
 	</Setup>
 	
-	<CameraDisplacement speedX="4.0" speedY="0.0" time="2.0f" />
+	<CameraTarget tag="Test1" time="0.0f" />
+	<Loop ite="3">
+		<EntityMove tag="Test1" speedX="1" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="1" time="3.0" />
+		<EntityMove tag="Test1" speedX="-1" speedY="0" time="3.0" />
+		<EntityMove tag="Test1" speedX="0" speedY="-1" time="3.0" />
+	</Loop>
+	<Jump />
+	<Wait time="5.0" />
+	
+	<!--<CameraDisplacement speedX="4.0" speedY="0.0" time="2.0f" />
 	<Wait time="5.0f"/>
 	<LabelWrite tag="Main_lbl" text="Hello There" time="0.0f" />
-<!--	<CameraTarget tag="Test1" time="1.0" />-->
-<!--	<Parallel>-->
+	<CameraTarget tag="Test1" time="1.0" />-->
+<!--	<Parallel>
 		<EntityMove tag="Test1" speedX="1" speedY="0" time="3.0" />
 		<!--<EntityMove tag="Test2" speedX="1" speedY="0" time="1.0" />
-	</Parallel>-->
-	<!--<EntityMove tag="Test1" speedX="0" speedY="1" time="3.0" />
+	</Parallel>
+	<EntityMove tag="Test1" speedX="0" speedY="1" time="3.0" />
 	<EntityMove tag="Test1" speedX="-1" speedY="0" time="3.0" />
-	<EntityMove tag="Test1" speedX="0" speedY="-1" time="3.0" />-->
+	<EntityMove tag="Test1" speedX="0" speedY="-1" time="3.0" />
 	<Wait time="3.0f" />
 	<Jump />
-	<Wait time="5.0f" />
+	<Wait time="5.0f" />-->
 	<!--<Parallel>
 		<EntityMove tag="Test1" speedX="-1" speedY="0" time="3.0" />
 		<EntityMove tag="Test2" speedX="-1" speedY="0" time="1.0" />

@@ -4,6 +4,7 @@
 #include "ModuleScene.h"
 #include "Point.h"
 
+#include "Application.h"
 
 class EntityInstruction : public CutInstruction
 {
@@ -44,7 +45,7 @@ public:
 				speed.y = speed.y * maxNum;
 			}
 
-			iAux = { aux->GetPosition().x + speed.x, aux->GetPosition().y + speed.y };
+			iAux = { aux->GetPosition().x + (speed.x), aux->GetPosition().y + (speed.y) };
 
 			if (speed.y < 0)
 			{ //Move Up

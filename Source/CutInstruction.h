@@ -15,8 +15,9 @@ enum States
 
 enum SubInstruction
 {
-	JUMPCUT = -1,
-	ONE,
+	LOOPCUT = -2,
+	JUMPCUT,
+	ONE = 0,
 	TWO,
 	THREE,
 	FOUR,

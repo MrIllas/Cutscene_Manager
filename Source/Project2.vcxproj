@@ -106,6 +106,7 @@
     <ClInclude Include="LabelInstruction.h" />
     <ClInclude Include="LabelSetup.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="LoopInstruction.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleAudio.h" />
