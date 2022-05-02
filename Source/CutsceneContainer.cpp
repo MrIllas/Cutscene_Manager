@@ -4,6 +4,7 @@
 #include "EntityInstruction.h"
 #include "LabelInstruction.h"
 #include "ParallelInstruction.h"
+#include "LoopInstruction.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 

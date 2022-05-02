@@ -3,18 +3,17 @@
 #include "Timer.h"
 
 
-class ParallelInstruction : public CutInstruction
+class LoopInstruction : public CutInstruction
 {
 public:
-	ParallelInstruction(float time) : CutInstruction(time)
+	LoopInstruction(float time, int iterations) : CutInstruction(time)
 	{
-		state = CONTINUOUS;
-		subInstruction = ONE;
+
 	}
 
-	~ParallelInstruction()
+	~LoopInstruction()
 	{
-		instructions.clearPtr();
+
 	}
 
 	void Play(float dt = 0.0f, bool JumpCut = false) override
@@ -35,17 +34,6 @@ public:
 			}
 		}
 	}
-
-	void AddInstruction(CutInstruction* instruction)
-	{
-		instructions.add(instruction);
-
-		if (instruction->time > time)
-		{
-			time = instruction->time;
-		}
-	}
-
 private:
 	List<CutInstruction*> instructions;
 	Timer innerClock;
