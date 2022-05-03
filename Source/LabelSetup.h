@@ -23,7 +23,7 @@ public:
 
 private:
 
-	std::string sentence = "None";
+	std::string sentence = "";
 
 	iPoint textPosition = { 0,0 };
 

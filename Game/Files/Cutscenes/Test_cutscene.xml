@@ -48,13 +48,16 @@
 	</Setup>
 	
 	<!--Emily enters -->
+
 	<Camera posX="224" posY="736" time="0.0f"/><!--y 736-->
-	<EntityMove tag="Emily" speedX="120" speedY="0" time="2.5" />
-	<LabelWrite tag="Name_lbl" text="Emily" time="0.0f" />
-	<LabelWrite tag="Main_lbl" text="Where might it be?" time="0.0f" />
+	<Wait time="0.8f" />	
+	<EntityMove tag="Emily" speedX="120" speedY="0" time="2.5" />	
+	<LabelWrite tag="Name_lbl" text="Emily" time="0.01f" />
+	<LabelWrite tag="Main_lbl" text="Where might it be?" time="0.01f" />
+	
 	<Parallel>
 		<EntityMove tag="Emily" speedX="120" speedY="0" time="1.9" />
-		<CameraTarget tag="Emily" time="0.001f" />
+		<CameraTarget tag="Emily" time="0.01f" />
 	</Parallel>
 	<EntityAnimation tag="Emily" name="Idle" />
 	
@@ -62,13 +65,13 @@
 	<CameraDisplacement speedX="200.0" speedY="0.0" time="5.5" />
 	<EntityMove tag="Will" speedX="-60" speedY="0" time="3.8" />
 	<EntityMove tag="Will" speedX="0" speedY="-1" time="0.5" />
-	<EntityMove tag="Will" speedX="1" speedY="" time="0.5" />
-	<EntityMove tag="Will" speedX="0" speedY="1" time="0.5" />
-	
-	<Wait time="0.8f"/>
+	<EntityMove tag="Will" speedX="1" speedY="0" time="0.5" />
+	<EntityMove tag="Will" speedX="-1" speedY="0" time="0.5" />
+	<EntityAnimation tag="Will" name="Idle" />
+	<Wait time="1.2f"/>
 	
 	<LabelWrite tag="Main_lbl" text="Hey! Will! Over here!" time="0.1" />
-	<Wait time="0.2f"/>
+	<Wait time="1.0f"/>
 	
 	
 	<Parallel>
@@ -86,18 +89,18 @@
 	
 	<Parallel>
 		<LabelWrite tag="Name_lbl" text="Emily" time="0.1f" />
-		<LabelWrite tag="Main_lbl" text="Crap! We have to find it!" time="1.8f" />
+		<LabelWrite tag="Main_lbl" text="Crap! We have to find it!" time="2.8f" />
 	</Parallel>
-	<LabelWrite tag="Main_lbl" text="It's somewhere here but where?" time="1.8f" />
+	<LabelWrite tag="Main_lbl" text="It's somewhere here, but where?" time="2.8f" />
 	<Wait time="0.5"/>
 	
 	<Parallel>
 		<LabelWrite tag="Name_lbl" text="Will" time="0.1f" />
-		<LabelWrite tag="Main_lbl" text="I know, but this place is huge" time="1.8f" />
+		<LabelWrite tag="Main_lbl" text="I know, but this place is huge" time="2.8f" />
 	</Parallel>
 	
-	<LabelWrite tag="Main_lbl" text="We can be here for a week..." time="1.8f" />
-	<LabelWrite tag="Main_lbl" text="and not even visit the whole museum..." time="1.0" />
+	<LabelWrite tag="Main_lbl" text="We can be here for a week..." time="2.8f" />
+	<LabelWrite tag="Main_lbl" text="and not even visit the whole museum..." time="2.0" />
 	
 	<LabelWrite tag="Name_lbl" text="Emily" time="0.1f" />
 	<LabelWrite tag="Main_lbl" text="." time="0.1f" />
@@ -134,42 +137,60 @@
 	<LabelWrite tag="Main_lbl" text="................................" time="0.1f" />
 	<LabelWrite tag="Main_lbl" text="................................." time="0.1f" />
 	<LabelWrite tag="Main_lbl" text=".................................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="..................................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="...................................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="....................................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="......................................" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="......................................." time="0.1f" />
 	
-	<Wait time="2.0f" />
+	<Wait time="2.5f" />
 	
 	<!--Starts action -->
 	<EntityAnimation tag="Emily" name="A_one" />
+	<Wait time="1.5f" />
 	<LabelWrite tag="Main_lbl" text="Where is it? Where is it?" time="0.5" />
-	<Wait time="1.0f" />
-	<LabelWrite tag="Main_lbl" text="If only this guidebook wasn't made" time="2.0f" />
-	<LabelWrite tag="Main_lbl" text="by stupid corpo baboons" time="0.8f" />
+	<Wait time="3.0f" />
+	<LabelWrite tag="Main_lbl" text="If only this guidebook wasn't made" time="2.5f" />
+	<LabelWrite tag="Main_lbl" text="by stupid corpo baboons" time="1.8f" />
 	
-	<EntityMove tag="Will" speedX="0" speedY="-60" time="4.5f" />
+	<EntityMove tag="Will" speedX="0" speedY="-60" time="2.2f" />
+	
+	<EntityMove tag="Will" speedX="1" speedY="0" time="0.5" />
+	<EntityMove tag="Will" speedX="0" speedY="-1" time="0.5" />
+	<EntityMove tag="Will" speedX="-1" speedY="1" time="0.5" />
+	
+	<EntityMove tag="Will" speedX="0" speedY="-60" time="2.2f" />
+	
+	<EntityMove tag="Will" speedX="1" speedY="0" time="0.5" />
+	<EntityMove tag="Will" speedX="0" speedY="-1" time="0.5" />
+	<EntityMove tag="Will" speedX="-1" speedY="0" time="0.5" />
+	
 	<EntityAnimation tag="Will" name="A_two" />
 	
-	<Wait time="2.0f" />
+	<Wait time="2.5f" />
 	<Parallel>
 		<LabelWrite tag="Name_lbl" text="Will" time="0.1sf" />
-		<LabelWrite tag="Main_lbl" text="It can't be!!!" time="1.0f" />
+		<LabelWrite tag="Main_lbl" text="It can't be!!!" time="2.8f" />
 	</Parallel>
-	<LabelWrite tag="Main_lbl" text="Emily! Isn't this..." time="0.5f" />
+	<LabelWrite tag="Main_lbl" text="Emily! Isn't this..." time="1.8f" />
 	
 	<EntityMove tag="Emily" speedX="0" speedY="-120" time="2.25f" />
 	<EntityAnimation tag="Emily" name="A_two" />
+	<Wait time="2.5f" />
 	
 	<Parallel>
 		<LabelWrite tag="Name_lbl" text="Emily" time="0.1sf" />
-		<LabelWrite tag="Main_lbl" text="Yes, this is the thing !" time="0.8f" />
+		<LabelWrite tag="Main_lbl" text="Yes, this is the thing !" time="2.8f" />
 	</Parallel>
 	
 	<Parallel>
 		<LabelWrite tag="Name_lbl" text="Will" time="0.1sf" />
-		<LabelWrite tag="Main_lbl" text="Finally I will have my rest..." time="0.8f" />
+		<LabelWrite tag="Main_lbl" text="Finally I will have my rest..." time="2.8f" />
 	</Parallel>
 	
 	<Parallel>
 		<LabelWrite tag="Name_lbl" text="Emily" time="0.1sf" />
-		<LabelWrite tag="Main_lbl" text="Let me, I will carry it" time="0.8" />
+		<LabelWrite tag="Main_lbl" text="Let me, I will carry it" time="1.8" />
 	</Parallel>
 	
 	<Wait time="1.0f" />
@@ -202,7 +223,7 @@
 	<Wait time="0.5f" />
 	
 	<Parallel>
-		<CameraDisplacement speedX="0.0" speedY="320.0" time="1.3f" />
+		<CameraDisplacement speedX="0.0" speedY="360.0" time="1.3f" />
 		<EntityMove tag="Will" speedX="0" speedY="160" time="1.35f" />
 		<EntityMove tag="Emily" speedX="0" speedY="300" time="1.3f" />
 	</Parallel>
