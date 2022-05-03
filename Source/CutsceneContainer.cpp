@@ -132,7 +132,6 @@ CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
 {
 
 	//TODO 6: Make the `CutsceneContainer.cpp` able to generated and save this new instruction.
-	//TODO 7: Use the new instruction in your script.
 
 	std::string value = element->name();
 	pugi::xml_node ele;
