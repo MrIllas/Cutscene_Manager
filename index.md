@@ -1,59 +1,59 @@
-## Cutscene Manager Research
+# Cutscene Manager Research
 
 I am Robert Recordà Illas, student of the Bachelor's Degree in Video Game Design and Development at UPC. The following content is generated for the second year's subject Project 2.
 
-### Introduction
+## Introduction
 
 A cutscene is a scene in a video game that develops the storyline and is often shown on completion of a certain level or when the player's character dies.
 
 A cutscene (also often refered as Event scene) is a sequence that helps develop the storyline, showing conversation between characters, reward the player, show characters in action, create mood, emotions and helps overall developing the narrative of the game.
 
-### Cases of use
+## Cases of use
 
-#### Introduction or Open Cinematic
+### Introduction or Open Cinematic
 This is the inital cutscene in a video game. It's usally a video and it helps introduce the world, the character and the events that lead to the current situation of the world.
 
-Back-story:
+**Back-story:**
 [Elden Ring](https://www.youtube.com/watch?v=_uydEN9Fu7M)\
-Plot:
+**Plot:**
 [Warcraft III](https://www.youtube.com/watch?v=jUmvrk0yVxU)\
-Action:
+**Action:**
 [Final Fantasy VII Remake](https://www.youtube.com/watch?v=qCmFgb1eE54)\
-Mood/Emotion:
+**Mood/Emotion:**
 [World of Warcraft](https://www.youtube.com/watch?v=vlVSJ0AvZe0)
 
-#### In-Between
+### In-Between
 This cutscene cuts the gameplay, its used as a reward or as a way to advance the plot.
 
-Plot:
+**Plot:**
 [Final Fantasy XIV](https://www.youtube.com/watch?v=3MFYXNc76nc)\
-Reward:
+**Reward:**
 [Final Fantasy XIV Shadowbringers](https://youtu.be/3MFYXNc76nc?t=1254)
 
-#### Final
+### Final
 The last cutscene in a video game, it's usually the best cutscene, the one where the player has to feel the highest ecstasy of emotions. It serves as the final reward in a game, it can close the story and even introduce clip hanggers to make players feel like they want more.
 
 [Zelda Breath of the Wild](https://www.youtube.com/watch?v=y9sZPqiLq50)
 
-### Types of Cutscenes
+## Types of Cutscenes
 #### Live-action
 This are cutscene with real actors instead of rendered characters. This types of cutscenes have become less used nowadays due to the ability of render or pre-render realistic cutscenes.
 
 [Inscryption](https://youtu.be/wWDRv69oDZ0?t=92)
 
-#### Pre-rendered
+### Pre-rendered
 This are animated cutscenes that are already rendered and stored in the game.
 
 [Elden Ring](https://youtu.be/c9akEr9y7XA?t=12)
 
-#### Mixed media
+### Mixed media
 This cutscenes are made by combining Live-action with Pre-rendered cutscenes. Those are made by real actors on a rendered background.
 
 [Wing Commander 3](https://youtu.be/4giX0Y01p0Q?t=6170)
 
-#### Interactive
+### Interactive
 
-#### In game engine or Real time
+### In game engine or Real time
 This is types of cutscenes are rendered by the player's systems graphic card.
 This cutscenes tend to have lower quality compared to the other types of cutscenes since they use the same render that the engine is using for the gameplay.
 
@@ -99,7 +99,6 @@ scale --> Scale of the text. (float)
     </Setup>
 </cutscene>
 ```
-
 
 #### Entities
 
