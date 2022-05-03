@@ -37,7 +37,7 @@
 			</Entity>
 		</Entities>
 		<Label tag="Main_lbl" posX="20" posY="20" scale="25" />
-		<Image tag="Test_sqr" path="Assets/Sprites/UI/Test.png" posX="0" posY="0" scale="1" />
+		<Image tag="Test_sqr" path="Assets/Sprites/UI/Test.png" posX="0" posY="0" scale="0.5" />
 	</Setup>
 	
 	<CameraTarget tag="Test1" time="0.0f" />

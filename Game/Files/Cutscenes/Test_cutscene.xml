@@ -42,11 +42,16 @@
 				</Animations>
 			</Entity>
 		</Entities>
+		<Label tag="Name_lbl" posX="160" posY="198" scale="0.2" />
+		<Label tag="Main_lbl" posX="134" posY="208" scale="0.15" />
+		<Image tag="Chat" path="Assets/Sprites/UI/Chat_box.png" posX="128" posY="192" scale="0.5" />
 	</Setup>
 	
 	<!--Emily enters -->
-	<Camera posX="224" posY="736" time="0.0f"/>
+	<Camera posX="224" posY="736" time="0.0f"/><!--y 736-->
 	<EntityMove tag="Emily" speedX="120" speedY="0" time="2.5" />
+	<LabelWrite tag="Name_lbl" text="Emily" time="0.0f" />
+	<LabelWrite tag="Main_lbl" text="Where might it be?" time="0.0f" />
 	<Parallel>
 		<EntityMove tag="Emily" speedX="120" speedY="0" time="1.9" />
 		<CameraTarget tag="Emily" time="0.001f" />
@@ -56,24 +61,118 @@
 	<!--Will enters -->
 	<CameraDisplacement speedX="200.0" speedY="0.0" time="5.5" />
 	<EntityMove tag="Will" speedX="-60" speedY="0" time="3.8" />
+	<EntityMove tag="Will" speedX="0" speedY="-1" time="0.5" />
+	<EntityMove tag="Will" speedX="1" speedY="" time="0.5" />
+	<EntityMove tag="Will" speedX="0" speedY="1" time="0.5" />
+	
+	<Wait time="0.8f"/>
+	
+	<LabelWrite tag="Main_lbl" text="Hey! Will! Over here!" time="0.1" />
+	<Wait time="0.2f"/>
+	
+	
 	<Parallel>
 		<EntityMove tag="Will" speedX="-60" speedY="0" time="4.7" />
 		<CameraTarget tag="Will" time="0.01f" />
 	</Parallel>
 	<EntityAnimation tag="Will" name="Idle" />
 	
-	<Wait time="8.0f" />
+	<LabelWrite tag="Main_lbl" text="Have you found it?" time="1.8f" />
+	
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Will" time="0.1f" />
+		<LabelWrite tag="Main_lbl" text="No, not even a single clue..." time="2.0f" />
+	</Parallel>
+	
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Emily" time="0.1f" />
+		<LabelWrite tag="Main_lbl" text="Crap! We have to find it!" time="1.8f" />
+	</Parallel>
+	<LabelWrite tag="Main_lbl" text="It's somewhere here but where?" time="1.8f" />
+	<Wait time="0.5"/>
+	
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Will" time="0.1f" />
+		<LabelWrite tag="Main_lbl" text="I know, but this place is huge" time="1.8f" />
+	</Parallel>
+	
+	<LabelWrite tag="Main_lbl" text="We can be here for a week..." time="1.8f" />
+	<LabelWrite tag="Main_lbl" text="and not even visit the whole museum..." time="1.0" />
+	
+	<LabelWrite tag="Name_lbl" text="Emily" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text=".." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="..." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="...." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="....." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="......" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="......." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="........" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="........." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text=".........." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="..........." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="............" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="............." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text=".............." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="..............." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="................" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text=".................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="..................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="...................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="....................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="......................" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="......................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="........................" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="........................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text=".........................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="..........................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="............................" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="............................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text=".............................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="..............................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="................................" time="0.1f" />
+	<LabelWrite tag="Main_lbl" text="................................." time="0.1f" />
+	<LabelWrite tag="Main_lbl" text=".................................." time="0.1f" />
+	
+	<Wait time="2.0f" />
 	
 	<!--Starts action -->
 	<EntityAnimation tag="Emily" name="A_one" />
-	<Wait time="5.0f" />
+	<LabelWrite tag="Main_lbl" text="Where is it? Where is it?" time="0.5" />
+	<Wait time="1.0f" />
+	<LabelWrite tag="Main_lbl" text="If only this guidebook wasn't made" time="2.0f" />
+	<LabelWrite tag="Main_lbl" text="by stupid corpo baboons" time="0.8f" />
 	
 	<EntityMove tag="Will" speedX="0" speedY="-60" time="4.5f" />
 	<EntityAnimation tag="Will" name="A_two" />
+	
+	<Wait time="2.0f" />
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Will" time="0.1sf" />
+		<LabelWrite tag="Main_lbl" text="It can't be!!!" time="1.0f" />
+	</Parallel>
+	<LabelWrite tag="Main_lbl" text="Emily! Isn't this..." time="0.5f" />
+	
 	<EntityMove tag="Emily" speedX="0" speedY="-120" time="2.25f" />
 	<EntityAnimation tag="Emily" name="A_two" />
 	
-	<Wait time="3.0f" />
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Emily" time="0.1sf" />
+		<LabelWrite tag="Main_lbl" text="Yes, this is the thing !" time="0.8f" />
+	</Parallel>
+	
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Will" time="0.1sf" />
+		<LabelWrite tag="Main_lbl" text="Finally I will have my rest..." time="0.8f" />
+	</Parallel>
+	
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Emily" time="0.1sf" />
+		<LabelWrite tag="Main_lbl" text="Let me, I will carry it" time="0.8" />
+	</Parallel>
+	
+	<Wait time="1.0f" />
 	
 	<!--Will gives way to Emily-->
 	<Parallel>
@@ -90,17 +189,20 @@
 	
 	<EntityMove tag="Guard" speed="0" speedY="80" time="1.5f" />
 	<EntityAnimation tag="Guard" name="Idle" />
-	<Wait time="5.0f" />
+
 	
-	<Jump />
-	<Wait time="0.5" />
+	<Parallel>
+		<LabelWrite tag="Name_lbl" text="Guard" time="0.1sf" />
+		<LabelWrite tag="Main_lbl" text="Hey you two! Stop right there!" time="0.5f" />
+	</Parallel>
+	<Wait time="1.5f" />
 	
 	<!--Running starts-->
-	<CameraDisplacement speedX="0.0" speedY="250.0" time="3.3" />
+	<CameraDisplacement speedX="0.0" speedY="300.0" time="3.3" />
 	<Wait time="0.5f" />
 	
 	<Parallel>
-		<CameraDisplacement speedX="0.0" speedY="220.0" time="1.3f" />
+		<CameraDisplacement speedX="0.0" speedY="320.0" time="1.3f" />
 		<EntityMove tag="Will" speedX="0" speedY="160" time="1.35f" />
 		<EntityMove tag="Emily" speedX="0" speedY="300" time="1.3f" />
 	</Parallel>
@@ -108,13 +210,12 @@
 	<EntityAnimation tag="Will" name="A_one" />
 	<Wait time="0.75" />
 	<EntityMove tag="Will" speedX="0" speedY="100" time="2f" />
-
-	<Jump />
-	<Wait time="0.5" />
 	
 	<!--Back to guard-->
 	<CameraDisplacement speedX="0.0" speedY="-300.0" time="4.0f" />
 	
-	<Wait time="5.0f" />
+	<LabelWrite tag="Main_lbl" text="Why do they always run... TT" time="0.5f" />
+	
+	<Wait time="2.5f" />
  </cutscene>
  

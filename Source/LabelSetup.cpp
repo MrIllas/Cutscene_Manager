@@ -5,10 +5,10 @@
 
 #include <iostream>
 
-LabelSetup::LabelSetup(std::string tag, iPoint textPos, int size) : GameObject("EntitySetup", tag)
+LabelSetup::LabelSetup(std::string tag, iPoint textPos, float size) : GameObject("EntitySetup", tag)
 {
 	textPosition = textPos;
-
+	scale = size;
 	Start();
 }
 
@@ -19,7 +19,7 @@ LabelSetup::~LabelSetup()
 
 void LabelSetup::Start()
 {
-	text = new Text(textPosition, sentence);
+	text = new Text(textPosition, sentence, "defaultFont", scale);
 }
 
 void LabelSetup::PreUpdate()

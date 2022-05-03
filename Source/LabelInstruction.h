@@ -10,8 +10,9 @@ public:
 	{
 		tagged = tag;
 		this->text = text;
+		this->time = time;
 
-		state = ONCE;
+		state = CONTINUOUS;
 		subInstruction = ONE;
 	}
 

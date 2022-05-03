@@ -5,7 +5,7 @@
 class ImageSetup : public GameObject
 {
 public:
-	ImageSetup(std::string tag, std::string path, fPoint imgPos = { 255 , 20 }, int scale = 1);
+	ImageSetup(std::string tag, std::string path, fPoint imgPos = { 255 , 20 }, float scale = 1);
 	~ImageSetup();
 
 	void Start() override;
@@ -22,7 +22,7 @@ public:
 
 private:
 
-	int scale = 1;
+	float scale = 1;
 	std::string path = "";
 
 	SDL_Texture* tex;

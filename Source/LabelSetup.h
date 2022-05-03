@@ -6,7 +6,7 @@
 class LabelSetup : public GameObject
 {
 public:
-	LabelSetup(std::string tag, iPoint textPos = { 255 , 20 }, int size = 25);
+	LabelSetup(std::string tag, iPoint textPos = { 255 , 20 }, float size = 25);
 	~LabelSetup();
 
 	void Start() override;
@@ -30,6 +30,8 @@ private:
 	Text* text = nullptr;
 
 	bool txtUpdated = false;
+
+	float scale = 1;
 };
 
 

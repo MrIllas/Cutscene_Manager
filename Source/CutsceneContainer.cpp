@@ -120,7 +120,7 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 			if (element != nullptr) {
 				LabelSetup* lbl = new LabelSetup(element->attribute("tag").as_string(),
 					{ element->attribute("posX").as_int(), element->attribute("posY").as_int() },
-					element->attribute("scale").as_int());
+					element->attribute("scale").as_float());
 			};
 			
 
@@ -134,7 +134,7 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 			ImageSetup* img = new ImageSetup(element->attribute("tag").as_string(),
 											 element->attribute("path").as_string(),
 											{ element->attribute("posX").as_float(), element->attribute("posY").as_float() },
-											 element->attribute("scale").as_int()
+											 element->attribute("scale").as_float()
 			);
 			break;
 	}

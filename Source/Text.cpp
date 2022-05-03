@@ -3,7 +3,7 @@
 #include "ModuleTextures.h"
 #include "Scene.h"
 
-Text::Text(iPoint position, std::string text, std::string font) : position(position), text(text)
+Text::Text(iPoint position, std::string text, std::string font, float size) : position(position), text(text)
 {
 	app = Application::GetInstance();
 
@@ -19,7 +19,7 @@ Text::Text(iPoint position, std::string text, std::string font) : position(posit
 
 	float orderInLayer = app->config.child("fonts").child(font.c_str()).attribute("orderInLayer").as_float(1);
 
-	float scale = app->config.child("fonts").child(font.c_str()).attribute("scale").as_float(1);
+	float scale = size;  app->config.child("fonts").child(font.c_str()).attribute("scale").as_float(1);
 
 	spaceInLetter = app->config.child("fonts").child(font.c_str()).attribute("spaceInLetter").as_int(0);
 
