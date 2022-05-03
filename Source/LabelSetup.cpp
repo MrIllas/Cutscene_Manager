@@ -30,7 +30,6 @@ void LabelSetup::PreUpdate()
 		text->position = textPosition;
 		txtUpdated = false;
 	}
-
 }
 
 void LabelSetup::Update()

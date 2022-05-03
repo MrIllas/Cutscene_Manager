@@ -43,10 +43,8 @@ public:
 
 		switch (subInstruction)
 		{
-			case ONE://Makes Entity Walk
-				std::cout << "Moving Entity" << std::endl;
+			case ONE: //Makes Entity Walk
 				num++;
-				//std::cout << num << std::endl;
 
 				aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
 				iAux = { 0 , 0 };
@@ -80,7 +78,7 @@ public:
 				aux->SetPosition(iAux);
 				break;
 
-			case TWO:
+			case TWO: //Sets an Animation
 
 				aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
 

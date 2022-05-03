@@ -24,11 +24,8 @@ public:
 
 public:
 	bool Load(std::string filename);
-	bool LoadInstructions(pugi::xml_node instructions);
 	void Play();
-	//bool LoadnPlay(std::string path);
 
-	bool Clear();
 
 private:
 	pugi::xml_document file;

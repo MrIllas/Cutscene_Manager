@@ -55,8 +55,6 @@ public:
 
 		if (item->data->time < innerClock.getDeltaTime())
 		{
-
-
 			cleaned = false;
 
 			item = item->next;

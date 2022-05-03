@@ -12,13 +12,6 @@ public:
 		subInstruction = ONE;
 	}
 
-	/*WaitInstruction() : CutInstruction(time)
-	{
-
-		state = CONTINUOUS;
-		subInstruction = TWO;
-	}*/
-
 	WaitInstruction() : CutInstruction(time)
 	{
 		time = 0.0f;
@@ -37,13 +30,13 @@ public:
 		switch (subInstruction)
 		{
 			case ONE:
-				std::cout << "Waiting" << std::endl;
+				//WAITING :D
 
 
 				break;
 
-			case TWO:
-				std::cout << "Waiting for key" << std::endl;
+			case TWO: // Waiting for a key
+				//Not implemented
 
 				if (app->input->GetKey(SDL_NUM_SCANCODES) == KEY_DOWN)
 				{

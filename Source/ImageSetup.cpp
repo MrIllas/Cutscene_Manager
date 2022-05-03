@@ -19,9 +19,7 @@ ImageSetup::~ImageSetup()
 
 void ImageSetup::Start()
 {
-	//renderObjects[0].InitAsTexture(Application::GetInstance()->textures->Load(path), { 0, 0 }, { 0, 0, 0, 0 }, scale, 4, 10);
 	tex = Application::GetInstance()->textures->Load(path);
-	
 }
 
 void ImageSetup::CleanUp()
@@ -41,8 +39,6 @@ void ImageSetup::Update()
 
 void ImageSetup::PostUpdate()
 {
-	//renderObjects[0].section;// = { 0, 0, 140, 94 };
-
 	Application::GetInstance()->renderer->AddTextureRenderQueue(tex, position, { 0 , 0, 0, 0 }, scale, 3, 0, 0, SDL_FLIP_NONE, 0.0f);
 
 	GameObject::PostUpdate();

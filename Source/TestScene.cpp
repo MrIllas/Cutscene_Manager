@@ -45,8 +45,11 @@ bool TestScene::PreUpdate()
         std::cout << app->renderer->camera->x << ", " << app->renderer->camera->y << std::endl;
     }
 
+    // TODO 1: Create a new script and add a way to load and play it in TestScene.cpp.
+
     if (app->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
     {
+        // ...
         if (app->cutscene->Load("Test_cutscene.xml"))
         {
             app->cutscene->Play();

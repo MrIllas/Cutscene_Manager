@@ -7,6 +7,9 @@
 #include "LabelSetup.h"
 #include "ImageSetup.h"
 
+
+// TODO 5: Add the new instruction to the corresponding enum and map a string with this instruction.
+
 enum Cut_Element
 {
 	INVALID,

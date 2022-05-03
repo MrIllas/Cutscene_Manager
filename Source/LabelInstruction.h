@@ -39,16 +39,11 @@ public:
 
 		switch (subInstruction)
 		{
-			case ONE:
-				std::cout << "Changing text of a Label" << std::endl;
-
-				
+			case ONE:				
 				aux->SetText(text);
 
 				break;
 			case TWO:
-				std::cout << "Clean Label" << std::endl;
-
 				aux->SetText("");
 
 				break;

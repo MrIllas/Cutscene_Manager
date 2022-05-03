@@ -60,9 +60,7 @@ UpdateStatus ModuleCutscene::PreUpdate()
 }
 
 UpdateStatus ModuleCutscene::Update()
-{
-	//std::cout << clock.getDeltaTime() << std::endl;
-	//clock.Reset();
+{;
 	if(!playing) return UpdateStatus::UPDATE_CONTINUE;
 
 	if (delay < clock.getDeltaTime() || (jumpCut && !container.isLoop())) //Time passed
@@ -72,7 +70,7 @@ UpdateStatus ModuleCutscene::Update()
 		//Returns in case there is no instruction at all
 		if (!playing) return UpdateStatus::UPDATE_CONTINUE;
 
-		delay = container.currentTime();// *1000;
+		delay = container.currentTime();
 		clock.Reset();
 		
 
@@ -81,9 +79,9 @@ UpdateStatus ModuleCutscene::Update()
  			container.PlayInstruction(jumpCut);
 		}
 		else if (container.IsJump())
-		{ //JumpCut Finish
+		{ 
 			jumpCut = false;
-			//return UpdateStatus::UPDATE_CONTINUE;
+
 		}
 	}
 	
@@ -126,6 +124,7 @@ bool ModuleCutscene::Load(std::string filename)
 	pugi::xml_node element = node.first_child();
 
 	std::string setup = element.name();
+
 	//Loads Entities and other additional things into the container
 	if (!setup.compare("Setup"))
 	{

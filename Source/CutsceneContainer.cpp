@@ -20,10 +20,6 @@ CutsceneContainer::CutsceneContainer()
 CutsceneContainer::~CutsceneContainer()
 {
 	instructions.clearPtr();
-	if (item != nullptr)
-	{
-		//delete item;
-	}
 	
 	item = nullptr;
 }
@@ -68,8 +64,6 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 				if (childElement.child("Texture") != nullptr)
 				{
 					pugi::xml_node textureElement = childElement.child("Texture");
-					/*width = textureElement.attribute("width").as_int();
-					height = textureElement.attribute("height").as_int();*/
 					layer = textureElement.attribute("layer").as_int();
 					orderInLayer = textureElement.attribute("orderInLayer").as_float();
 					scale = textureElement.attribute("scale").as_float();
@@ -78,8 +72,6 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 
 				//Entity declaration
 				entity->renderObjects[0].InitAsTexture(app->textures->Load(path), { 0 , 0 }, { 0, 0, 0, 0 }, scale, layer, orderInLayer);
-				//entity->renderObjects[0].textureCenterX = width;
-				//entity->renderObjects[0].textureCenterY = height;
 
 				//Animations
 				if (childElement.child("Animations") != nullptr)
@@ -110,9 +102,6 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 					}
 				}
 
-
-				//entities.add(entity);
-
 				childElement = childElement.next_sibling();
 			}
 			break;
@@ -122,12 +111,6 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 					{ element->attribute("posX").as_int(), element->attribute("posY").as_int() },
 					element->attribute("scale").as_float());
 			};
-			
-
-			/*if (element->first_child() != nullptr)
-			{
-				lbl->SetText(element->first_child().name());
-			}*/
 
 			break;
 		case IMAGE:
@@ -147,6 +130,10 @@ void CutsceneContainer::AddInstruction(pugi::xml_node* element)
 
 CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
 {
+
+	//TODO 6: Make the `CutsceneContainer.cpp` able to generated and save this new instruction.
+	//TODO 7: Use the new instruction in your script.
+
 	std::string value = element->name();
 	pugi::xml_node ele;
 	switch (ResolveElement(value))
@@ -254,13 +241,11 @@ bool CutsceneContainer::Next()
 		played = false;
 		return true;
 	}else
-	//if (item->next == nullptr)
 	{
 		ClearCutscene();
 
 		return false;
 	}
-	//return true;
 }
 
 void CutsceneContainer::ClearCutscene()
@@ -333,6 +318,8 @@ void CutsceneContainer::PlayCInstruction(float dt, bool jumpCut)
 
 Cut_Element CutsceneContainer::ResolveElement(std::string input)
 {
+
+	// TODO 5: Add the new instruction to the corresponding enum and map a string with this instruction.
 	std::map<std::string, Cut_Element> eleStrings{
 		{"Entities", ENTITIES},
 		{"Label", LABEL},
