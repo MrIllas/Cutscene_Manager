@@ -124,11 +124,13 @@ void Camera::SetPosition(iPoint pos)
 	y = targetPosY;
 }
 
-void Camera::ReleaseTarget()
+bool Camera::ReleaseTarget()
 {
-	if (target == nullptr) return;
+	if (target == nullptr) return false;
 	target = nullptr;
-	x = y = 0;
+	//x = y = 0;
+
+	return true;
 }
 
 void Camera::Shake(int power, int time, int attenuate)

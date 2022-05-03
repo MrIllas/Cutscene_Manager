@@ -1,7 +1,7 @@
 #include "SceneGame.h"
 
 
-#define TESTSCENE "Cutscene_map.tmx"
+#define TESTSCENE "Cutscene_01.tmx"
 
 class SpellSpawnManager;
 

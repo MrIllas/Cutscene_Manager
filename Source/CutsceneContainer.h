@@ -19,6 +19,7 @@ enum Cut_Element
 	CAMERA_TARGET,
 	CAMERA_DISPLACEMENT,
 	ENTITY_MOVE,
+	ENTITY_ANIMATION,
 	LABEL_WRITE,
 	LABEL_CLEAR,
 	PARALLEL,
@@ -64,8 +65,8 @@ public:
 	void ClearCutscene();
 
 private:
-	Cut_Element resolveElement(std::string input);
-	Animation_Setup resolveAnimation(std::string input);
+	Cut_Element ResolveElement(std::string input);
+	Animation_Setup ResolveAnimation(std::string input);
 public:
 	bool played = false;
 

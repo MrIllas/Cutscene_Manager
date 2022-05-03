@@ -33,7 +33,7 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 	std::string value = element->name();
 	pugi::xml_node childElement; 
 
-	switch (resolveElement(value))
+	switch (ResolveElement(value))
 	{
 		case ENTITIES:
 			
@@ -98,13 +98,13 @@ void CutsceneContainer::AddSetup(pugi::xml_node* element)
 
 						for (int i = 0; i < frames; i++)
 						{
-							entity->animations[resolveAnimation(name)].PushBack({ width * i, line * height, width, height });
+							entity->animations[ResolveAnimation(name)].PushBack({ width * i, line * height, width, height });
 							
 						}
 
-						entity->animations[resolveAnimation(name)].loop = loop;
-						entity->animations[resolveAnimation(name)].hasIdle = false;
-						entity->animations[resolveAnimation(name)].speed = speed;
+						entity->animations[ResolveAnimation(name)].loop = loop;
+						entity->animations[ResolveAnimation(name)].hasIdle = false;
+						entity->animations[ResolveAnimation(name)].speed = speed;
 
 						animationElement = animationElement.next_sibling();
 					}
@@ -149,7 +149,7 @@ CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
 {
 	std::string value = element->name();
 	pugi::xml_node ele;
-	switch (resolveElement(value))
+	switch (ResolveElement(value))
 	{
 		case CAMERA:
 			return new CamInstruction(element->attribute("posX").as_int(),
@@ -181,6 +181,10 @@ CutInstruction* CutsceneContainer::ReturnInstruction(pugi::xml_node* element)
 												   element->attribute("time").as_float()
 			);
 			break;
+		case ENTITY_ANIMATION:
+			return new EntityInstruction(element->attribute("tag").as_string(),
+										(int) ResolveAnimation(element->attribute("name").as_string())
+			);
 		case LABEL_WRITE:
 			return new LabelInstruction(element->attribute("tag").as_string(),
 												  element->attribute("text").as_string(),
@@ -327,7 +331,7 @@ void CutsceneContainer::PlayCInstruction(float dt, bool jumpCut)
 	item->data->Play(dt, jumpCut);
 }
 
-Cut_Element CutsceneContainer::resolveElement(std::string input)
+Cut_Element CutsceneContainer::ResolveElement(std::string input)
 {
 	std::map<std::string, Cut_Element> eleStrings{
 		{"Entities", ENTITIES},
@@ -339,6 +343,7 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 		{"CameraTarget", CAMERA_TARGET},
 		{"CameraDisplacement", CAMERA_DISPLACEMENT},
 		{"EntityMove", ENTITY_MOVE},
+		{"EntityAnimation", ENTITY_ANIMATION},
 		{"LabelWrite", LABEL_WRITE},
 		{"LabelClear", LABEL_CLEAR},
 		{"Parallel", PARALLEL},
@@ -354,7 +359,7 @@ Cut_Element CutsceneContainer::resolveElement(std::string input)
 	return INVALID;
 }
 
-Animation_Setup CutsceneContainer::resolveAnimation(std::string input)
+Animation_Setup CutsceneContainer::ResolveAnimation(std::string input)
 {
 	std::map<std::string, Animation_Setup> eleStrings{
 		{"Idle", IDLE},

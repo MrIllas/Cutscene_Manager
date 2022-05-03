@@ -20,7 +20,7 @@ void EntitySetup::PostUpdate()
 	animations[currentAnimation].Update();
 	renderObjects[0].section = animations[currentAnimation].GetCurrentFrame();
 
-	currentAnimation = 0;
+	//currentAnimation = 0;
 
 	GameObject::PostUpdate();
 }

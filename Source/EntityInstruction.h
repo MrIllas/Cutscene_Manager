@@ -9,7 +9,7 @@
 class EntityInstruction : public CutInstruction
 {
 public:
-	EntityInstruction(std::string tag, int speedX = 1, int speedY = 1, float time = 1.0f) : CutInstruction(time)
+	EntityInstruction(std::string tag, int speedX, int speedY, float time = 1.0f) : CutInstruction(time)
 	{
 		tagged = tag;
 		speed = { speedX, speedY };
@@ -20,6 +20,16 @@ public:
 		subInstruction = ONE;
 	}
 
+	EntityInstruction(std::string tag, int name) : CutInstruction(time)
+	{
+		time = 0.00f;
+		tagged = tag;
+		anim = name;
+
+		state = ONCE;
+		subInstruction = TWO;
+	}
+
 	~EntityInstruction()
 	{
 	}
@@ -28,44 +38,55 @@ public:
 	{
 		if (EXECUTED) return;
 		
+		EntitySetup* aux = nullptr;
+		fPoint iAux = { 0, 0 };
+
 		switch (subInstruction)
 		{
-		case ONE://Makes Entity Walk
-			//::cout << "Moving Entity" << std::endl;
-			num++;
-			//std::cout << num << std::endl;
+			case ONE://Makes Entity Walk
+				std::cout << "Moving Entity" << std::endl;
+				num++;
+				//std::cout << num << std::endl;
 
-			EntitySetup* aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
-			fPoint iAux = { 0 , 0 };
+				aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
+				iAux = { 0 , 0 };
 
-			if (JumpCut)
-			{
-				maxNum = maxNum - num;
-				speed.x = speed.x * maxNum;
-				speed.y = speed.y * maxNum;
-			}
+				if (JumpCut)
+				{
+					maxNum = maxNum - num;
+					speed.x = speed.x * maxNum;
+					speed.y = speed.y * maxNum;
+				}
 			
-			iAux = { aux->GetPosition().x + (speed.x * Application::GetInstance()->dt), aux->GetPosition().y + (speed.y * Application::GetInstance()->dt) };
+				iAux = { aux->GetPosition().x + (speed.x * Application::GetInstance()->dt), aux->GetPosition().y + (speed.y * Application::GetInstance()->dt) };
 
-			if (speed.y < 0)
-			{ //Move Up
-				aux->SetAnimation(WALK_UP);
-			}
-			if (speed.y > 0)
-			{ //Move Down
-				aux->SetAnimation(WALK_DOWN);
-			}
-			if (speed.x > 0)
-			{ //Move Right
-				aux->SetAnimation(WALK_RIGHT);
-			}
-			if (speed.x < 0)
-			{ //Move Left
-				aux->SetAnimation(WALK_LEFT);
-			}
+				if (speed.y < 0)
+				{ //Move Up
+					aux->SetAnimation(WALK_UP);
+				}
+				if (speed.y > 0)
+				{ //Move Down
+					aux->SetAnimation(WALK_DOWN);
+				}
+				if (speed.x > 0)
+				{ //Move Right
+					aux->SetAnimation(WALK_RIGHT);
+				}
+				if (speed.x < 0)
+				{ //Move Left
+					aux->SetAnimation(WALK_LEFT);
+				}
 
-			aux->SetPosition(iAux);
-			break;
+				aux->SetPosition(iAux);
+				break;
+
+			case TWO:
+
+				aux = dynamic_cast<EntitySetup*>(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
+
+				aux->SetAnimation(anim);
+
+				break;
 		}
 
 		if (state == ONCE)
@@ -79,4 +100,5 @@ private:
 	iPoint speed;
 	int num = 0;
 	int maxNum = 0;
+	int anim = 0;
 };

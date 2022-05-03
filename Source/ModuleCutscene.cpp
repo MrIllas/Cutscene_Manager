@@ -65,7 +65,7 @@ UpdateStatus ModuleCutscene::Update()
 	//clock.Reset();
 	if(!playing) return UpdateStatus::UPDATE_CONTINUE;
 
-	if (delay <= clock.getDeltaTime() || (jumpCut && !container.isLoop())) //Time passed
+	if (delay < clock.getDeltaTime() || (jumpCut && !container.isLoop())) //Time passed
 	{
 		playing = container.Next();
 
@@ -78,7 +78,7 @@ UpdateStatus ModuleCutscene::Update()
 
 		if (!container.IsContinuous())
 		{
-			container.PlayInstruction(jumpCut);
+ 			container.PlayInstruction(jumpCut);
 		}
 		else if (container.IsJump())
 		{ //JumpCut Finish
@@ -154,7 +154,7 @@ void ModuleCutscene::Play()
 	jumpCut = false;
 
 	clock.Reset();
-	delay = 0.0f;
+	delay = -1.0f;
 }
 
 void ModuleCutscene::GetSaveData(pugi::xml_document& save)

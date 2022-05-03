@@ -46,22 +46,27 @@ public:
 	void Play(float dt = 0.0f, bool JumpCut = false) override
 	{
 		if (EXECUTED) return;
-		//else if (CONTINUOUS) 
-	
-		app->renderer->camera->ReleaseTarget();
+		//else if (CONTINUOUS) 		
 
 		switch (subInstruction)
 		{
 		case ONE://Position Setting
 			std::cout << "Camera Position set" << std::endl;
+			app->renderer->camera->ReleaseTarget();
 			app->renderer->camera->SetPosition(position);
 			break;
 		case TWO://Camera focus
 			std::cout << "Camera focus" << std::endl;
+			app->renderer->camera->ReleaseTarget();
 			app->renderer->camera->SetTarget(app->scene->scenes[app->scene->currentScene]->GetGameObjectByTag(tagged));
 			break;
 		case THREE://Camera displacement
 			std::cout << "Displacing camera" << std::endl;
+
+			app->renderer->camera->ReleaseTarget();
+
+
+
 			num++;
 			if (JumpCut)
 			{
@@ -70,8 +75,8 @@ public:
 				speed.y = speed.y * maxNum;
 			}
 
-			app->renderer->camera->x -= (speed.x) * -1;
-			app->renderer->camera->y -= (speed.y) * -1;
+			app->renderer->camera->x -= (speed.x * Application::GetInstance()->dt) * -1;
+			app->renderer->camera->y -= (speed.y * Application::GetInstance()->dt) * -1;
 			
 			break;
 		}

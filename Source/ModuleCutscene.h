@@ -37,7 +37,7 @@ private:
 	bool jumpCut = false;
 
 	CutsceneContainer container;
-	float delay = 0.0f;
+	float delay = 1.0f;
 	Timer clock;
 };
 

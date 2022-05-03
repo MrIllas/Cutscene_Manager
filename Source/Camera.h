@@ -23,7 +23,7 @@ public:
 
 	void SetPosition(iPoint pos);
 
-	void ReleaseTarget();
+	bool ReleaseTarget();
 
 	/// <summary>
 	/// Camera shake effect

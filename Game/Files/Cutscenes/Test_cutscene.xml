@@ -1,5 +1,120 @@
  <?xml version="1.0"?>
- <Cutscene title="test">
+ <cutscene title="test">
+	<Setup>
+		<Entities>
+			<Entity tag="Emily">
+				<Position posX="-60" posY="736" />
+				<Texture layer="1" orderInLayer="3.0" scale="1.0" path="Assets/Sprites/Emily.png" />
+				<Animations>
+					<Animation name="Idle" loop="true" frames="6" width="32" height="64" line="0" speed="0.10f" />
+					<Animation name="Walk_up" loop="true" frames="6" width="32" height="64" line="1" speed="0.10f" />
+					<Animation name="Walk_down" loop="true" frames="6" width="32" height="64" line="2" speed="0.10f" />
+					<Animation name="Walk_left" loop="true" frames="6" width="32" height="64" line="3" speed="0.10f" />
+					<Animation name="Walk_right" loop="true" frames="6" width="32" height="64" line="4" speed="0.10f" />
+					<Animation name="A_one" loop="true" frames="6" width="32" height="64" line="5" speed="0.05f" />
+					<Animation name="A_two" loop="true" frames="6" width="32" height="64" line="6" speed="0.10f" />
+				</Animations>
+			</Entity>
+			
+			<Entity tag="Will">
+				<Position posX="1024" posY="736" />
+				<Texture layer="1" orderInLayer="3.0" scale="1.0" path="Assets/Sprites/Will.png" />
+				<Animations>
+					<Animation name="Idle" loop="true" frames="6" width="32" height="64" line="0" speed="0.10f" />
+					<Animation name="Walk_up" loop="true" frames="6" width="32" height="64" line="1" speed="0.10f" />
+					<Animation name="Walk_down" loop="true" frames="6" width="32" height="64" line="2" speed="0.10f" />
+					<Animation name="Walk_left" loop="true" frames="6" width="32" height="64" line="3" speed="0.10f" />
+					<Animation name="Walk_right" loop="true" frames="6" width="32" height="64" line="4" speed="0.10f" />
+					<Animation name="A_one" loop="false" frames="6" width="32" height="64" line="6" speed="0.10f" />
+					<Animation name="A_two" loop="true" frames="6" width="32" height="64" line="5" speed="0.10f" />
+				</Animations>
+			</Entity>
+			
+			<Entity tag="Guard">
+				<Position posX="512" posY="0" />
+				<Texture layer="1" orderInLayer="3.0" scale="1.0" path="Assets/Sprites/Guard.png" />
+				<Animations>
+					<Animation name="Idle" loop="true" frames="6" width="32" height="64" line="0" speed="0.10f" />
+					<Animation name="Walk_up" loop="true" frames="6" width="32" height="64" line="1" speed="0.10f" />
+					<Animation name="Walk_down" loop="true" frames="6" width="32" height="64" line="2" speed="0.10f" />
+					<Animation name="Walk_left" loop="true" frames="6" width="32" height="64" line="3" speed="0.10f" />
+					<Animation name="Walk_right" loop="true" frames="6" width="32" height="64" line="4" speed="0.10f" />
+				</Animations>
+			</Entity>
+		</Entities>
+	</Setup>
 	
- </Cutscene>
+	<!--Emily enters -->
+	<Camera posX="224" posY="736" time="0.0f"/>
+	<EntityMove tag="Emily" speedX="120" speedY="0" time="2.5" />
+	<Parallel>
+		<EntityMove tag="Emily" speedX="120" speedY="0" time="1.9" />
+		<CameraTarget tag="Emily" time="0.001f" />
+	</Parallel>
+	<EntityAnimation tag="Emily" name="Idle" />
+	
+	<!--Will enters -->
+	<CameraDisplacement speedX="200.0" speedY="0.0" time="5.5" />
+	<EntityMove tag="Will" speedX="-60" speedY="0" time="3.8" />
+	<Parallel>
+		<EntityMove tag="Will" speedX="-60" speedY="0" time="4.7" />
+		<CameraTarget tag="Will" time="0.01f" />
+	</Parallel>
+	<EntityAnimation tag="Will" name="Idle" />
+	
+	<Wait time="8.0f" />
+	
+	<!--Starts action -->
+	<EntityAnimation tag="Emily" name="A_one" />
+	<Wait time="5.0f" />
+	
+	<EntityMove tag="Will" speedX="0" speedY="-60" time="4.5f" />
+	<EntityAnimation tag="Will" name="A_two" />
+	<EntityMove tag="Emily" speedX="0" speedY="-120" time="2.25f" />
+	<EntityAnimation tag="Emily" name="A_two" />
+	
+	<Wait time="3.0f" />
+	
+	<!--Will gives way to Emily-->
+	<Parallel>
+		<CameraTarget tag="Emily" time="0.001f" />
+		<EntityMove tag="Emily" speedX="60" speedY="0" time="0.8f" />
+		<EntityMove tag="Will" speedX="60" speedY="0" time="0.8" />
+	</Parallel>
+	
+	<EntityAnimation tag="Will" name="A_two" />
+	<EntityAnimation tag="Emily" name="A_two" />
+	
+	<!--Guard appears-->
+	<CameraDisplacement speedX="0.0" speedY="-200.0" time="3" />
+	
+	<EntityMove tag="Guard" speed="0" speedY="80" time="1.5f" />
+	<EntityAnimation tag="Guard" name="Idle" />
+	<Wait time="5.0f" />
+	
+	<Jump />
+	<Wait time="0.5" />
+	
+	<!--Running starts-->
+	<CameraDisplacement speedX="0.0" speedY="250.0" time="3.3" />
+	<Wait time="0.5f" />
+	
+	<Parallel>
+		<CameraDisplacement speedX="0.0" speedY="220.0" time="1.3f" />
+		<EntityMove tag="Will" speedX="0" speedY="160" time="1.35f" />
+		<EntityMove tag="Emily" speedX="0" speedY="300" time="1.3f" />
+	</Parallel>
+	
+	<EntityAnimation tag="Will" name="A_one" />
+	<Wait time="0.75" />
+	<EntityMove tag="Will" speedX="0" speedY="100" time="2f" />
+
+	<Jump />
+	<Wait time="0.5" />
+	
+	<!--Back to guard-->
+	<CameraDisplacement speedX="0.0" speedY="-300.0" time="4.0f" />
+	
+	<Wait time="5.0f" />
+ </cutscene>
  

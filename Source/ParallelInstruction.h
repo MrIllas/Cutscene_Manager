@@ -26,13 +26,21 @@ public:
 			cleaned = true;
 		}
 
+		int y = 0;
+
 		for (int i = 0; i < instructions.count(); ++i)
 		{
-			std::cout << innerClock.getDeltaTime() << std::endl;
-			if (instructions[i]->time >= innerClock.getDeltaTime())
+			std::cout << dt << std::endl;
+			if (instructions[i]->time >= dt)
 			{
 				instructions[i]->Play(dt, JumpCut);
 			}
+			else ++y;
+		}
+
+		if (y >= instructions.count())
+		{
+			state = ONCE;
 		}
 	}
 
