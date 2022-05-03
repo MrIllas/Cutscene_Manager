@@ -285,7 +285,7 @@ This is a special Instruction, this instruction wraps other instructions. All th
 
 ### TODO 1
 
-Create a new script and add a way to play it in `TestScene.cpp`.
+Create a new script and add a way to load play it in `TestScene.cpp`.
 
 **NOTE:** The engine has already the direction to the cutscene folder. All new scripts must be created there.
 
@@ -299,16 +299,14 @@ Make the Entity you created be targeted by the camera, then make the entity move
 
 ### TODO 4
 
-In `CameraInstruction.h` create a new sub instruction that only moves the camera to an entity's position but doesn't follow it along.
+In `CamInstruction.h` create a new sub instruction that only moves the camera to an entity's position but doesn't follow it along.
 
 ### TODO 5
 
 Add the new instruction to the corresponding enum and map a string with this instruction.
 
+**NOTE: The enum is located in `CutsceneContainer.h`.
+
 ### TODO 6
 
 Make the `CutsceneContainer.cpp` able to generated and save this new instruction.
-
-### TODO 7
-
-Use the new instruction in your script.
