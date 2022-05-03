@@ -138,26 +138,26 @@ speed --> The speed which the animation changes frames. (float)\
 <cutscene>
     <Setup>
         <Entities>
-        		<Entity tag="Emily">
-        				<Position posX="-60" posY="736" />
-        				<Texture layer="1" orderInLayer="3.0" scale="1.0" path="Assets/Sprites/Emily.png" />
-        				<Animations>
-        					<Animation name="Walk_up" loop="true" frames="6" width="32" height="64" line="1" speed="0.10f" />
-        					<Animation name="Walk_down" loop="true" frames="6" width="32" height="64" line="2" speed="0.10f" />
-        					<Animation name="Walk_left" loop="true" frames="6" width="32" height="64" line="3" speed="0.10f" />
-        					<Animation name="Walk_right" loop="true" frames="6" width="32" height="64" line="4" speed="0.10f" />
-        				</Animations>
-        			</Entity>
-        			<Entity tag="Will">
-        				<Position posX="1024" posY="736" />
-        				<Texture layer="1" orderInLayer="3.0" scale="1.0" path="Assets/Sprites/Will.png" />
-        				<Animations>
-        					<Animation name="Walk_up" loop="true" frames="6" width="32" height="64" line="1" speed="0.10f" />
-        					<Animation name="Walk_down" loop="true" frames="6" width="32" height="64" line="2" speed="0.10f" />
-        					<Animation name="Walk_left" loop="true" frames="6" width="32" height="64" line="3" speed="0.10f" />
-        					<Animation name="Walk_right" loop="true" frames="6" width="32" height="64" line="4" speed="0.10f" />
-        				</Animations>
-        			</Entity>
+        	<Entity tag="Emily">
+        		<Position posX="-60" posY="736" />
+        		<Texture layer="1" orderInLayer="3.0" scale="1.0" path="Assets/Sprites/Emily.png" />
+        		    <Animations>
+        				<Animation name="Walk_up" loop="true" frames="6" width="32" height="64" line="1" speed="0.10f" />
+        				<Animation name="Walk_down" loop="true" frames="6" width="32" height="64" line="2" speed="0.10f" />
+        				<Animation name="Walk_left" loop="true" frames="6" width="32" height="64" line="3" speed="0.10f" />
+        				<Animation name="Walk_right" loop="true" frames="6" width="32" height="64" line="4" speed="0.10f" />
+        		</Animations>
+        	</Entity>
+        	<Entity tag="Will">
+        		<Position posX="1024" posY="736" />
+        		<Texture layer="1" orderInLayer="3.0" scale="1.0" path="Assets/Sprites/Will.png" />
+        		<Animations>
+        			<Animation name="Walk_up" loop="true" frames="6" width="32" height="64" line="1" speed="0.10f" />
+        			<Animation name="Walk_down" loop="true" frames="6" width="32" height="64" line="2" speed="0.10f" />
+        			<Animation name="Walk_left" loop="true" frames="6" width="32" height="64" line="3" speed="0.10f" />
+        		    <Animation name="Walk_right" loop="true" frames="6" width="32" height="64" line="4" speed="0.10f" />
+        		</Animations>
+            </Entity>
         </Entities>
     </Setup>
 </cutscene>
