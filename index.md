@@ -1,4 +1,64 @@
-## Welcome to GitHub Pages
+## Cutscene Manager Research
+
+I am Robert Recordà Illas, student of the Bachelor's Degree in Video Game Design and Development at UPC. The following content is generated for the second year's subject Project 2.
+
+### Introduction
+
+A cutscene is a scene in a video game that develops the storyline and is often shown on completion of a certain level or when the player's character dies.
+
+A cutscene (also often refered as Event scene) is a sequence that helps develop the storyline, showing conversation between characters, reward the player, show characters in action, create mood, emotions and helps overall developing the narrative of the game.
+
+### Cases of use
+
+Introduction or Open Cinematic
+This is the inital cutscene in a video game. It's usally a video and it helps introduce the world, the character and the events that lead to the current situation of the world.
+
+Back-story: 
+Elden Ring
+https://www.youtube.com/watch?v=_uydEN9Fu7M
+
+Plot:
+Warcraft III
+https://www.youtube.com/watch?v=jUmvrk0yVxU
+
+Action:
+Final Fantasy VII Remake
+https://www.youtube.com/watch?v=qCmFgb1eE54
+
+Mood/Emotion:
+World of Warcraft
+https://www.youtube.com/watch?v=vlVSJ0AvZe0
+
+In-Between
+This cutscene cuts the gameplay, its used as a reward or as a way to advance the plot.
+
+Plot
+Final Fantasy XIV
+https://www.youtube.com/watch?v=3MFYXNc76nc
+
+Reward
+Final Fantasy XIV Shadowbringers
+https://youtu.be/3MFYXNc76nc?t=1254
+
+Final
+The last cutscene in a video game, it's usually the best cutscene, the one where the player has to feel the highest ecstasy of emotions. It serves as the final reward in a game, it can close the story and even introduce clip hanggers to make players feel like they want more.
+
+Zelda Breath of the Wild
+https://www.youtube.com/watch?v=y9sZPqiLq50
+
+### Types of Cutscenes
+
+#### Live-action
+
+
+#### Pre-rendered
+
+#### Real time
+
+#### Mixed media 
+
+#### Interactive
+
 
 You can use the [editor on GitHub](https://github.com/MrIllas/Cutscene_Manager/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
