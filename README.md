@@ -61,8 +61,16 @@ This cutscenes tend to have lower quality compared to the other types of cutscen
 [Halo Infinite](https://www.youtube.com/watch?v=WqwbtvuXw60)
 
 
-## How to make a Real time Cutscene Manager
+## Other Engines solution
 
+In commercial engines there is a tool where you have a time bar and you can add elements, characteristics and attributes through time. You can set frames where attributes and properties of the objects are modified or set this points as interpolations of movement, scale, colour, effects and many more things
+
+Here there are some video examples of how cutscenes are made:
+
+[Unity](https://www.youtube.com/watch?v=Tg-ydfLEPak)\
+[Unreal Engine](https://www.youtube.com/watch?v=7dVHhwGBCQQ)
+
+## How to make a Real time Cutscene Manager
 
 
 ### Setup
