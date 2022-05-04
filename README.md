@@ -290,8 +290,6 @@ This is a special Instruction, this instruction wraps other instructions. All th
 
 ## TODO
 
-[Link to the handout]()
-
 ### TODO 1
 
 Create a new script and add a way to load play it in `TestScene.cpp`.
