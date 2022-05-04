@@ -50,6 +50,9 @@ This cutscenes are made by combining Live-action with Pre-rendered cutscenes. Th
 [Wing Commander 3](https://youtu.be/4giX0Y01p0Q?t=6170)
 
 ### Interactive
+This type of cutscenes is the most unique one, this one implies the player taking control of the action by pressing buttons or a sequence of buttons while this appear on the screen.
+
+[Spiderman 3](https://youtu.be/5Js72d-LpEI)
 
 ### In game engine or Real time
 This is types of cutscenes are rendered by the player's systems graphic card.
