@@ -4,8 +4,6 @@ I am Robert Recordà Illas, student of the Bachelor's Degree in Video Game Desig
 
 ## Introduction
 
-A cutscene is a scene in a video game that develops the storyline and is often shown on completion of a certain level or when the player's character dies.
-
 A cutscene (also often refered as Event scene) is a sequence that helps develop the story by showing conversation between characters, can be used to reward players, often shows characters in action and can also be used to create mood or emotions.
 
 ## Cases of use
