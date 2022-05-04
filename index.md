@@ -4,14 +4,12 @@ I am Robert Recordà Illas, student of the Bachelor's Degree in Video Game Desig
 
 ## Introduction
 
-A cutscene is a scene in a video game that develops the storyline and is often shown on completion of a certain level or when the player's character dies.
-
-A cutscene (also often refered as Event scene) is a sequence that helps develop the storyline, showing conversation between characters, reward the player, show characters in action, create mood, emotions and helps overall developing the narrative of the game.
+A cutscene (also often refered as Event scene) is a sequence that helps develop the story by showing conversation between characters, can be used to reward players, often shows characters in action and can also be used to create mood or emotions.
 
 ## Cases of use
 
 ### Introduction or Open Cinematic
-This is the inital cutscene in a video game. It's usally a video and it helps introduce the world, the character and the events that lead to the current situation of the world.
+This is the inital cutscene in a video game. It is usually a video and it helps introduce the world, the character and the events that lead to the current situation of the world.
 
 **Back-story:**
 [Elden Ring](https://www.youtube.com/watch?v=_uydEN9Fu7M)\
@@ -23,7 +21,7 @@ This is the inital cutscene in a video game. It's usally a video and it helps in
 [World of Warcraft](https://www.youtube.com/watch?v=vlVSJ0AvZe0)
 
 ### In-Between
-This cutscene cuts the gameplay, its used as a reward or as a way to advance the plot.
+This cutscene cuts the gameplay, it is often used as a reward or as a way to advance the plot.
 
 **Plot:**
 [Final Fantasy XIV](https://www.youtube.com/watch?v=3MFYXNc76nc)\
@@ -31,7 +29,7 @@ This cutscene cuts the gameplay, its used as a reward or as a way to advance the
 [Final Fantasy XIV Shadowbringers](https://youtu.be/3MFYXNc76nc?t=1254)
 
 ### Final
-The last cutscene in a video game, it's usually the best cutscene, the one where the player has to feel the highest ecstasy of emotions. It serves as the final reward in a game, it can close the story and even introduce clip hanggers to make players feel like they want more.
+The last cutscene in a video game. This is generally the best cutscene and the one where the player must experience the highest ecstasy of emotions. It serves also as the final reward in a game. This cutscene can close the story and even introduce clip hanggers to make players feel like they want more.
 
 [Zelda Breath of the Wild](https://www.youtube.com/watch?v=y9sZPqiLq50)
 
@@ -52,6 +50,9 @@ This cutscenes are made by combining Live-action with Pre-rendered cutscenes. Th
 [Wing Commander 3](https://youtu.be/4giX0Y01p0Q?t=6170)
 
 ### Interactive
+This type of cutscenes is the most unique one, this one implies the player taking control of the action by pressing buttons or a sequence of buttons while this appear on the screen.
+
+[Spiderman 3](https://youtu.be/5Js72d-LpEI)
 
 ### In game engine or Real time
 This is types of cutscenes are rendered by the player's systems graphic card.
@@ -60,8 +61,16 @@ This cutscenes tend to have lower quality compared to the other types of cutscen
 [Halo Infinite](https://www.youtube.com/watch?v=WqwbtvuXw60)
 
 
-## How to make a Real time Cutscene Manager
+## Other Engines solution
 
+In commercial engines there is a tool where you have a time bar and you can add elements, characteristics and attributes through time. You can set frames where attributes and properties of the objects are modified or set this points as interpolations of movement, scale, colour, effects and many more things
+
+Here there are some video examples of how cutscenes are made:
+
+[Unity](https://www.youtube.com/watch?v=Tg-ydfLEPak)\
+[Unreal Engine](https://www.youtube.com/watch?v=7dVHhwGBCQQ)
+
+## How to make a Real time Cutscene Manager
 
 
 ### Setup
@@ -280,8 +289,6 @@ This is a special Instruction, this instruction wraps other instructions. All th
 
 
 ## TODO
-
-[Link to the handout]()
 
 ### TODO 1
 
